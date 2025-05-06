@@ -113,6 +113,36 @@
         console.error("Fetch error:", error);
       }
     }
+    import requests
+
+def fetch_grade(assignments, exams):
+    # Google Apps Script endpoint (your deployed web app URL)
+    script_url = "https://script.google.com/macros/s/AKfycbwHIx9SaHxVielNW2cuipmT0NzLUHGmpKFJwyUFFbRL/exec"
+
+    # Parameters to send
+    params = {
+        "assignments": assignments,
+        "exams": exams
+    }
+
+    try:
+        response = requests.get(script_url, params=params)
+        response.raise_for_status()  # Raise an error for bad status codes
+
+        data = response.json()
+        grade = data.get("grade", "Unknown")
+
+        print(f"✅ Your current course grade is: {grade}%")
+
+    except requests.RequestException as e:
+        print("❌ Failed to fetch grade:", e)
+    except ValueError:
+        print("❌ Failed to parse response as JSON.")
+
+# Example usage
+if __name__ == "__main__":
+    fetch_grade(assignments=85, exams=90)
+
 
     window.addEventListener('load', fetchGrade);
   </script>
