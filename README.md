@@ -92,25 +92,28 @@
     <p><strong>Name:</strong> ALAM AL KAHAF<br><strong>Phone:</strong> 010-9672-4615</p>
   </div>
 
-  <script>
-    async function fetchGrade() {
-      const scriptUrl = "https://script.google.com/macros/s/AKfycbyrv47SQm8fSjKYhNt5izqHG0sD2AHEZSqH5GoCDFxL3XTwSNMV-B4cjusnh884o3n0uA/exec";
-      const assignments = 85;
-      const exams = 90;
+ <script>
+  async function fetchGrade() {
+    const scriptUrl = "https://script.google.com/macros/s/AKfycbyrv47SQm8fSjKYhNt5izqHG0sD2AHEZSqH5GoCDFxL3XTwSNMV-B4cjusnh884o3n0uA/exec";
+    const assignments = 85;
+    const exams = 90;
 
-      try {
-        const response = await fetch(`${scriptUrl}?assignments=${assignments}&exams=${exams}`);
-        if (!response.ok) throw new Error("Network response was not ok");
+    try {
+      const response = await fetch(`${scriptUrl}?assignments=${assignments}&exams=${exams}`);
+      if (!response.ok) throw new Error("Network response was not ok");
 
-        const data = await response.json();
-        document.getElementById("grade-loader").style.display = "none";
-        document.getElementById("grade-content").style.display = "block";
-        document.getElementById("grade-value").textContent = `${data.grade}%`;
-      } catch (error) {
-        document.getElementById("grade-loader").style.display = "none";
-        document.getElementById("grade-content").style.display = "block";
-        document.getElementById("grade-value").textContent = "Error loading grade";
-        console.error("Fetch error:", error);
-      }
+      const data = await response.json();
+      document.getElementById("grade-loader").style.display = "none";
+      document.getElementById("grade-content").style.display = "block";
+      document.getElementById("grade-value").textContent = `${data.grade}%`;
+    } catch (error) {
+      document.getElementById("grade-loader").style.display = "none";
+      document.getElementById("grade-content").style.display = "block";
+      document.getElementById("grade-value").textContent = "Error loading grade";
+      console.error("Fetch error:", error);
     }
-    
+  }
+
+  fetchGrade();
+</script>
+
