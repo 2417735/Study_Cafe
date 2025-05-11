@@ -94,7 +94,7 @@
 
   <script>
     async function fetchGrade() {
-      const scriptUrl = "https://script.google.com/a/macros/donga.ac.kr/s/AKfycbzUIIZU5HvNc1Da3E8r8LyAL8A1BMnDGrSBlib-ldaKktab99ARqnAiTXZkykNeRh3tsQ/exec";
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbyrv47SQm8fSjKYhNt5izqHG0sD2AHEZSqH5GoCDFxL3XTwSNMV-B4cjusnh884o3n0uA/exec";
       const assignments = 85;
       const exams = 90;
 
