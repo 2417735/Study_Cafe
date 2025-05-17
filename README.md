@@ -114,6 +114,17 @@
       console.error("Fetch error:", error);
     }
   }
+   <script>
+  function checkPassword() {
+    const userInput = prompt("Enter password to access ChatGPT link:");
+    if (userInput === "123*") {
+      window.location.href = "https://chatgpt.com/share/68287b74-1070-8001-be40-25ccc12da934";
+    } else {
+      alert("Incorrect password.");
+    }
+  }
+</script>
+
 
   fetchGrade();
 </script>
