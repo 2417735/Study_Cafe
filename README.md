@@ -1,5 +1,5 @@
 # study_cafe-v4
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -112,9 +112,8 @@
       document.getElementById("grade-content").style.display = "block";
       document.getElementById("grade-value").textContent = "Error loading grade";
       console.error("Fetch error:", error);
-    }
-  }
-   <script>
+
+      
   function checkPassword() {
     const userInput = prompt("Enter password to access ChatGPT link:");
     if (userInput === "123*") {
@@ -123,9 +122,4 @@
       alert("Incorrect password.");
     }
   }
-</script>
-
-
-  fetchGrade();
-</script>
 
