@@ -1,10 +1,8 @@
-# study_cafe-v4
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Personal Website - Dong-A University</title>
+  <title>My Personal Website</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
     body { background-color: #f0f0f5; color: #333; line-height: 1.6; }
@@ -58,6 +56,9 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+    .pin-button {
+      margin-top: 15px;
+    }
   </style>
 </head>
 <body>
@@ -85,6 +86,7 @@
       <h2>Meet Me!</h2>
       <p>Schedule a meeting by filling out my form.</p>
       <a href="https://forms.gle/7DCt8EuLRgdPb9p5A" class="btn black-outline" target="_blank">Book Appointment</a>
+      <button class="btn pink-outline pin-button" onclick="checkPassword()">Hif Lumen</button>
     </div>
   </div>
 
@@ -92,34 +94,38 @@
     <p><strong>Name:</strong> ALAM AL KAHAF<br><strong>Phone:</strong> 010-9672-4615</p>
   </div>
 
- <script>
-  async function fetchGrade() {
-    const scriptUrl = "https://script.google.com/macros/s/AKfycbyrv47SQm8fSjKYhNt5izqHG0sD2AHEZSqH5GoCDFxL3XTwSNMV-B4cjusnh884o3n0uA/exec"; 
+  <script>
+    async function fetchGrade() {
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbyrv47SQm8fSjKYhNt5izqHG0sD2AHEZSqH5GoCDFxL3XTwSNMV-B4cjusnh884o3n0uA/exec"; 
+      const assignments = 85;
+      const exams = 90;
 
-    const assignments = 85;
-    const exams = 90;
+      try {
+        const response = await fetch(`${scriptUrl}?assignments=${assignments}&exams=${exams}`);
+        if (!response.ok) throw new Error("Network response was not ok");
 
-    try {
-      const response = await fetch(`${scriptUrl}?assignments=${assignments}&exams=${exams}`);
-      if (!response.ok) throw new Error("Network response was not ok");
-
-      const data = await response.json();
-      document.getElementById("grade-loader").style.display = "none";
-      document.getElementById("grade-content").style.display = "block";
-      document.getElementById("grade-value").textContent = `${data.grade}%`;
-    } catch (error) {
-      document.getElementById("grade-loader").style.display = "none";
-      document.getElementById("grade-content").style.display = "block";
-      document.getElementById("grade-value").textContent = "Error loading grade";
-      console.error("Fetch error:", error);
-
-      
-  function checkPassword() {
-    const userInput = prompt("Enter password to access ChatGPT link:");
-    if (userInput === "123*") {
-      window.location.href = "https://chatgpt.com/share/68287b74-1070-8001-be40-25ccc12da934";
-    } else {
-      alert("Incorrect password.");
+        const data = await response.json();
+        document.getElementById("grade-loader").style.display = "none";
+        document.getElementById("grade-content").style.display = "block";
+        document.getElementById("grade-value").textContent = `${data.grade}%`;
+      } catch (error) {
+        document.getElementById("grade-loader").style.display = "none";
+        document.getElementById("grade-content").style.display = "block";
+        document.getElementById("grade-value").textContent = "Error loading grade";
+        console.error("Fetch error:", error);
+      }
     }
-  }
 
+    function checkPassword() {
+      const userInput = prompt("Enter password to access ChatGPT link:");
+      if (userInput === "123") {
+        window.open("https://chatgpt.com/share/68287b74-1070-8001-be40-25ccc12da934", "_blank");
+      } else {
+        alert("Incorrect password.");
+      }
+    }
+
+    fetchGrade();
+  </script>
+</body>
+</html>
