@@ -82,9 +82,9 @@
       <p>Access my assignments and projects.</p>
       <a href="https://drive.google.com/drive/folders/1HEdPj6teJZ1kTmk-r2uzcGFjHI3ncf54" class="btn black-outline" target="_blank">Open Assignments</a>
     </div>
-     <div class="panel blue-panel">
+     <div class="panel meroon-panel">
       <h2>Virtual library</h2>
-      <p>projects.</p>
+      <p>project.</p>
       <a href="https://drive.google.com/drive/folders/1mHxn9k3QIyhbLMQW3lqhFvjcAtnh7va-?usp=drive_link" target="_blank">Open Assignments</a>
     </div>
     <div class="panel white-panel">
