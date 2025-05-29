@@ -77,6 +77,12 @@
       <p>Learn more about me, my academic journey, and research interests.</p>
       <a href="https://docs.google.com/document/d/1xe9krDjvvUrDFGY1bn4iDg_NHSHtk3PP5S_SjNl0-rQ/edit?usp=sharing" class="btn black-outline" target="_blank">README</a>
     </div>
+     <div class="main-container">
+    <div class="panel black-panel">
+      <h3>Project</h3>
+      <p>Learn more about me, my academic journey, and research interests.</p>
+      <a href="https://2417735.github.io/crypterror/" class="btn black-outline" target="_blank">crypterror</a>
+    </div>s
     <div class="panel blue-panel">
       <h2>Assignments</h2>
       <p>Access my assignments and projects.</p>
