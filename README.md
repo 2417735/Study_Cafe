@@ -273,61 +273,53 @@
     </div>
 
     <!-- JavaScript for Grade Fetching and Button Actions -->
+    
     <script>
-        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzzY6qH-_i41hMMK5k_3dDNkD8qv8b0T6W_M1K6NNP-N5csXzpFx1pB2nKhUplFPrRE/exec";
+    const GOOGLE_APPS_SCRIPT_URL = "https://script.googleusercontent.com/a/macros/donga.ac.kr/echo?user_content_key=AehSKLgsWmgERdsRJEWdY3bbusUYmzlHmQAjhXCQDEcockIAVrq2D2gcjj8bR9XER5gzPCtv0PHYC6c-3nx8lRg42MGbHLxPOwcXrJ_xrBJKhL_lz9hJD-CWTi3fm4l-DcM3jOVUTCbQylFeCVxZ2bDUCz5plGy8dbXOBfcHF36vSx9A-XHSIq1DYrtcVByS1s8jRczWf_RVnionKRvfKUBf7fOeEqYJJANccHn54W1xXDuEoEfWxlD2JEkQ41a_EoJYnM-2qFrYwSM7uHkrIx4&lib=MwRwjs1Y-2dWdCdr1hmgm9ArgiwDOqQhJ";
 
-        // Function to fetch the grade from the Google Apps Script URL
-        async function fetchGrade() {
-            const gradeLoader = document.getElementById('gradeLoader');
-            const gradeValueSpan = document.getElementById('gradeValue');
-            const gradeStatusOverlay = document.getElementById('gradeStatusOverlay');
+    async function fetchGrade() {
+        const gradeLoader = document.getElementById('gradeLoader');
+        const gradeValueSpan = document.getElementById('gradeValue');
+        const gradeStatusOverlay = document.getElementById('gradeStatusOverlay');
 
-            // Show loader and hide error/value
-            if (gradeLoader) gradeLoader.style.display = 'inline-block';
-            if (gradeValueSpan) {
-                gradeValueSpan.textContent = 'Loading...';
-                gradeValueSpan.style.color = '#4b5563'; // Neutral color during loading
+        gradeLoader.style.display = 'inline-block';
+        gradeValueSpan.textContent = 'Loading...';
+        gradeStatusOverlay.style.display = 'none';
+
+        try {
+            const response = await fetch(GOOGLE_APPS_SCRIPT_URL);
+
+            if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+
+            const data = await response.json();
+            if (data.error) throw new Error(data.error);
+
+            const current = data.current;
+            const max = data.max;
+
+            if (typeof current === 'number' && typeof max === 'number' && max > 0) {
+                const percent = Math.round((current / max) * 100);
+                gradeValueSpan.textContent = `${percent}%`;
+                gradeValueSpan.style.color = '#222';
+            } else {
+                gradeValueSpan.textContent = 'N/A';
+                gradeStatusOverlay.textContent = 'Invalid data from server.';
+                gradeStatusOverlay.style.display = 'block';
             }
-            if (gradeStatusOverlay) gradeStatusOverlay.style.display = 'none';
 
-            try {
-                const response = await fetch(GOOGLE_APPS_SCRIPT_URL);
-                if (!response.ok) {
-                    throw new Error(`HTTP error: ${response.status}`);
-                }
-
-                const data = await response.json();
-                if (data.error) {
-                    throw new Error(data.error);
-                }
-
-                const current = data.current;
-                const max = data.max;
-
-                if (typeof current === 'number' && typeof max === 'number' && max > 0) {
-                    const percent = Math.round((current / max) * 100);
-                    if (gradeValueSpan) {
-                        gradeValueSpan.textContent = `${percent}%`;
-                        gradeValueSpan.style.color = '#10B981'; // Green for success
-                    }
-                } else {
-                    throw new Error("Invalid grade data received.");
-                }
-            } catch (err) {
-                console.error("Failed to fetch grade:", err);
-                if (gradeValueSpan) {
-                    gradeValueSpan.textContent = 'Error';
-                    gradeValueSpan.style.color = '#EF4444'; // Red for error
-                }
-                if (gradeStatusOverlay) {
-                    gradeStatusOverlay.textContent = 'Could not load grade.';
-                    gradeStatusOverlay.style.display = 'block';
-                }
-            } finally {
-                if (gradeLoader) gradeLoader.style.display = 'none'; // Always hide loader in the end
-            }
+        } catch (err) {
+            console.error(err);
+            gradeValueSpan.textContent = 'Error';
+            gradeStatusOverlay.textContent = 'Could not load grade.';
+            gradeStatusOverlay.style.display = 'block';
+        } finally {
+            gradeLoader.style.display = 'none';
         }
+    }
 
+    document.addEventListener('DOMContentLoaded', fetchGrade);
+
+    
         // Function to check password for "Hif Lumen" access
         function checkPassword() {
             // Using a simple prompt; consider a custom modal for better UX
