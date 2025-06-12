@@ -1,10 +1,9 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-  <img src="IMG_0503.jpg" alt="ALAM AL KAHAF Profile Picture" class="w-48 h-48 rounded-full object-cover shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-30"/>
+    <title>ALAM AL KAHAF - Personal Profile</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
@@ -172,7 +171,7 @@
             <!-- Profile Image -->
             <div class="flex-shrink-0 mb-8 lg:mb-0 lg:mr-16">
                 <!-- Profile picture from your previous code -->
-                <img src="https://placehold.co/200x200/e0e0e0/ffffff?text=ALAM+KAHAF" alt="ALAM AL KAHAF Profile Picture" class="w-48 h-48 rounded-full object-cover shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src='https://placehold.co/200x200/e0e0e0/ffffff?text=ALAM+KAHAF';"/>
+                <img src="IMG_0503.jpg" alt="ALAM AL KAHAF Profile Picture" class="w-48 h-48 rounded-full object-cover shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-300"/>
             </div>
 
             <!-- Hero Content -->
