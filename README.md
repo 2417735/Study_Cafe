@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', sans-serif; 
       background-color: #222;
       color: #333;
       display: flex;
