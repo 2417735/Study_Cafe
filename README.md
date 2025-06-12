@@ -105,6 +105,13 @@
             color: #db2777;
         }
 
+        /* Styling for the dropdown menu unordered list */
+        #dropdownMenu ul {
+            list-style: none; /* Remove default bullet points */
+            padding: 0;
+            margin: 0;
+        }
+
         /* Animation for background blobs */
         @keyframes blob-animation {
             0% { transform: translate(-50%, -50%) scale(1); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
@@ -211,7 +218,6 @@
                 <a href="#academic" class="hover:text-blue-600 transition-colors duration-200 py-1">Academic</a>
                 <a href="#connect" class="hover:text-blue-600 transition-colors duration-200 py-1">Connect</a>
                 <a href="#hikes" class="hover:text-blue-600 transition-colors duration-200 py-1">Adventures</a>
-                <!-- The 'Resources' link is now implicitly covered by the dropdown -->
             </nav>
 
             <!-- Mobile Menu Toggle (Currently just an icon, would require JS for full functionality) -->
@@ -257,11 +263,17 @@
                         </button>
                         <div id="dropdownMenu" class="origin-top-right absolute right-0 sm:left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="dropdownButton">
                             <div class="py-1" role="none">
-                                <a href="https://drive.google.com/drive/folders/1HEdPj6teJZ1kTmk-r2uzcGFjHI3ncf54" class="btn-resource-dropdown" role="menuitem" target="_blank">Assignments</a>
-                                <a href="https://drive.google.com/drive/folders/1mHxn9k3QIyhbLMQW3lqhFvjcAtnh7va-?usp=drive_link" class="btn-resource-dropdown" role="menuitem" target="_blank">Library</a>
-                                <a href="https://forms.gle/7DCt8EuLRgdPb9p5A" class="btn-resource-dropdown" role="menuitem" target="_blank">Book Appointment</a>
-                                <button class="btn-resource-dropdown pink" role="menuitem" onclick="showPasswordModal()">Hif Lumen</button>
-                                <button class="btn-resource-dropdown pink" role="menuitem" onclick="openAITutor()">AI Tutor</button>
+                                <span class="block px-4 py-2 text-xs text-gray-400 font-bold uppercase">Academic Resources</span>
+                                <ul>
+                                    <li><a href="https://drive.google.com/drive/folders/1HEdPj6teJZ1kTmk-r2uzcGFjHI3ncf54" class="btn-resource-dropdown" role="menuitem" target="_blank">Assignments</a></li>
+                                    <li><a href="https://drive.google.com/drive/folders/1mHxn9k3QIyhbLMQW3lqhFvjcAtnh7va-?usp=drive_link" class="btn-resource-dropdown" role="menuitem" target="_blank">Library</a></li>
+                                </ul>
+                                <span class="block px-4 py-2 text-xs text-gray-400 font-bold uppercase mt-2">Interactive Tools</span>
+                                <ul>
+                                    <li><a href="https://forms.gle/7DCt8EuLRgdPb9p5A" class="btn-resource-dropdown" role="menuitem" target="_blank">Book Appointment</a></li>
+                                    <li><button class="btn-resource-dropdown pink" role="menuitem" onclick="showPasswordModal()">Hif Lumen</button></li>
+                                    <li><button class="btn-resource-dropdown pink" role="menuitem" onclick="openAITutor()">AI Tutor</button></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -498,7 +510,7 @@
         }
 
         /**
-         * Verifies the entered password and grants access or shows an error.
+         * Verifies the entered password and grants access or shows an.
          */
         function verifyPassword() {
             const passwordInput = document.getElementById('passwordInput');
