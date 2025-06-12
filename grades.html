@@ -1,0 +1,110 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Grades</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Optional: Custom styles if needed, but Tailwind handles most */
+        body {
+            font-family: sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb; /* Light gray border */
+        }
+        th {
+            background-color: #e0e7ff; /* Light blue header */
+            font-weight: 600;
+            color: #374151; /* Darker text */
+        }
+        tr:nth-child(even) {
+            background-color: #f9fafb; /* Slightly darker for even rows */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">My Academic Grades</h1>
+
+        <div id="grades-display" class="mt-4">
+            <p class="text-center text-gray-600">Loading grades...</p>
+        </div>
+    </div>
+
+    <script>
+        // Your Google App Script deployed URL
+        const appScriptUrl = 'https://script.google.com/macros/s/AKfycbwuQ5DsbxhXLm2uqi_Hqm41ugjPYuRZpc1kEmF-rOuJA_FyESsoW_P6JdRkBLVMut79vQ/exec';
+
+        const gradesDisplay = document.getElementById('grades-display');
+
+        async function fetchAndDisplayGrades() {
+            try {
+                gradesDisplay.innerHTML = '<p class="text-center text-blue-500">Loading grades...</p>';
+
+                const response = await fetch(appScriptUrl);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // Check if data is an array and not empty
+                if (Array.isArray(data) && data.length > 0) {
+                    let tableHTML = '<table class="min-w-full divide-y divide-gray-200 shadow-md rounded-lg overflow-hidden">';
+                    
+                    // Create table headers from the keys of the first object
+                    const headers = Object.keys(data[0]);
+                    tableHTML += '<thead><tr>';
+                    headers.forEach(header => {
+                        tableHTML += `<th class="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">${header}</th>`;
+                    });
+                    tableHTML += '</tr></thead><tbody>';
+
+                    // Populate table rows
+                    data.forEach(row => {
+                        tableHTML += '<tr>';
+                        headers.forEach(header => {
+                            // Ensure data[header] is not null or undefined, default to empty string
+                            const cellValue = row[header] !== undefined && row[header] !== null ? row[header] : '';
+                            tableHTML += `<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${cellValue}</td>`;
+                        });
+                        tableHTML += '</tr>';
+                    });
+
+                    tableHTML += '</tbody></table>';
+                    gradesDisplay.innerHTML = tableHTML;
+                } else {
+                    gradesDisplay.innerHTML = '<p class="text-center text-gray-600">No grades found or data is empty.</p>';
+                }
+
+            } catch (error) {
+                console.error("Failed to fetch grades:", error);
+                gradesDisplay.innerHTML = `<p class="text-center text-red-600">Error loading grades. Please try again later. <br> Details: ${error.message}</p>`;
+            }
+        }
+
+        // Call the function when the page loads
+        document.addEventListener('DOMContentLoaded', fetchAndDisplayGrades);
+    </script>
+
+</body>
+</html>
