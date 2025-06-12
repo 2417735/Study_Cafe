@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons CDN (for "What I Do" style sections if needed, though not directly used for your sections here) -->
+    <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js"></script>
     <style>
         body {
@@ -137,7 +136,7 @@
 
         <!-- Background wave/blob shape - Enhanced for visual appeal -->
         <div class="absolute top-0 left-0 w-80 h-80 bg-blue-50 rounded-full opacity-70 -translate-x-1/2 -translate-y-1/2 blob-top-left filter blur-2xl"></div>
-        <div class="absolute bottom-0 right-0 w-80 h-80 bg-blue-50 rounded-full opacity-70 translate-x-1/2 translate-y-1/2 blob-bottom-right filter blur-2xl"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 bg-blue-50 rounded-full opacity-70 translate-x-1/2 -translate-y-1/2 blob-bottom-right filter blur-2xl"></div>
 
         <!-- Header Section -->
         <header class="flex flex-col lg:flex-row items-center justify-between py-4 px-6 mb-8 lg:mb-12 z-10 relative">
@@ -187,66 +186,8 @@
                     <a href="https://2417735.github.io/crypterror/" class="btn-secondary px-8 py-3 rounded-xl text-lg font-medium" target="_blank">Crypterror</a>
                 </div>
             </div>
-         <!-- JavaScript for Grade Fetching and Button Actions -->
- 
-    <script>
-        // Updated Google Apps Script URL
-    
-        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuQ5DsbxhXLm2uqi_Hqm41ugjPYuRZpc1kEmF-rOuJA_FyESsoW_P6JdRmBLVMut79vQ/exec";
-
-        // Function to fetch the grade from the Google Apps Script URL
-        async function fetchGrade() {
-            const gradeLoader = document.getElementById('gradeLoader');
-            const gradeValueSpan = document.getElementById('gradeValue');
-            const gradeStatusOverlay = document.getElementById('gradeStatusOverlay');
-
-            // Show loader and hide error/value
-            if (gradeLoader) gradeLoader.style.display = 'inline-block';
-            if (gradeValueSpan) {
-                gradeValueSpan.textContent = 'Loading...';
-                gradeValueSpan.style.color = '#4b5563'; // Neutral color during loading
-            }
-            if (gradeStatusOverlay) gradeStatusOverlay.style.display = 'none';
-
-            try {
-                const response = await fetch(GOOGLE_APPS_SCRIPT_URL);
-                if (!response.ok) {
-                    throw new Error(`HTTP error: ${response.status}`);
-                }
-
-                const data = await response.json();
-                if (data.error) {
-                    throw new Error(data.error);
-                }
-
-                const current = data.current;
-                const max = data.max;
-
-                if (typeof current === 'number' && typeof max === 'number' && max > 0) {
-                    const percent = Math.round((current / max) * 100);
-                    if (gradeValueSpan) {
-                        gradeValueSpan.textContent = `${percent}%`;
-                        gradeValueSpan.style.color = '#10B981'; // Green for success
-                    }
-                } else {
-                    throw new Error("Invalid grade data received.");
-                }
-            } catch (err) {
-                console.error("Failed to fetch grade:", err);
-                if (gradeValueSpan) {
-                    gradeValueSpan.textContent = 'Error';
-                    gradeValueSpan.style.color = '#EF4444'; // Red for error
-                }
-                if (gradeStatusOverlay) {
-                    gradeStatusOverlay.textContent = 'Could not load grade.';
-                    gradeStatusOverlay.style.display = 'block';
-                }
-            } finally {
-                if (gradeLoader) gradeLoader.style.display = 'none'; // Always hide loader in the end
-            }
-        }
             <!-- Additional Buttons -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
                 <a href="https://drive.google.com/drive/folders/1HEdPj6teJZ1kTmk-r2uzcGFjHI3ncf54" class="btn-resource" target="_blank">Assignments</a>
                 <a href="https://drive.google.com/drive/folders/1mHxn9k3QIyhbLMQW3lqhFvjcAtnh7va-?usp=drive_link" class="btn-resource" target="_blank">Library</a>
                 <a href="https://forms.gle/7DCt8EuLRgdPb9p5A" class="btn-resource" target="_blank">Book Appointment</a>
@@ -290,7 +231,15 @@
                             <li><strong>University:</strong> [Your University Name]</li>
                             <li><strong>Major:</strong> [Your Major]</li>
                             <li><strong>Status:</strong> [e.g., Undergraduate, Graduate]</li>
-                            <li><strong>Grade:</strong> See "My Resources & Tools"</li>
+                            <!-- Grade Display Area -->
+                            <li>
+                                <strong>Current Overall Grade:</strong> 
+                                <div class="grade-overview-box-alt inline-block ml-2 p-2">
+                                    <span id="gradeValue">Loading...</span>
+                                    <span id="gradeLoader" class="grade-loader-alt" style="display: none;"></span>
+                                    <span id="gradeStatusOverlay" class="grade-error-text-alt" style="display: none;"></span>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -317,58 +266,70 @@
     </div>
 
     <!-- JavaScript for Grade Fetching and Button Actions -->
-    
     <script>
-    const GOOGLE_APPS_SCRIPT_URL = "https://script.googleusercontent.com/a/macros/donga.ac.kr/echo?user_content_key=AehSKLgsWmgERdsRJEWdY3bbusUYmzlHmQAjhXCQDEcockIAVrq2D2gcjj8bR9XER5gzPCtv0PHYC6c-3nx8lRg42MGbHLxPOwcXrJ_xrBJKhL_lz9hJD-CWTi3fm4l-DcM3jOVUTCbQylFeCVxZ2bDUCz5plGy8dbXOBfcHF36vSx9A-XHSIq1DYrtcVByS1s8jRczWf_RVnionKRvfKUBf7fOeEqYJJANccHn54W1xXDuEoEfWxlD2JEkQ41a_EoJYnM-2qFrYwSM7uHkrIx4&lib=MwRwjs1Y-2dWdCdr1hmgm9ArgiwDOqQhJ";
+        // Updated Google Apps Script URL (consistent with grades.html)
+        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuQ5DsbxhXLm2uqi_Hqm41ugjPYuRZpc1kEmF-rOuJA_FyESsoW_P6JdRkBLVMut79vQ/exec";
 
-    async function fetchGrade() {
-        const gradeLoader = document.getElementById('gradeLoader');
-        const gradeValueSpan = document.getElementById('gradeValue');
-        const gradeStatusOverlay = document.getElementById('gradeStatusOverlay');
+        async function fetchGrade() {
+            const gradeLoader = document.getElementById('gradeLoader');
+            const gradeValueSpan = document.getElementById('gradeValue');
+            const gradeStatusOverlay = document.getElementById('gradeStatusOverlay');
 
-        gradeLoader.style.display = 'inline-block';
-        gradeValueSpan.textContent = 'Loading...';
-        gradeStatusOverlay.style.display = 'none';
-
-        try {
-            const response = await fetch(GOOGLE_APPS_SCRIPT_URL);
-
-            if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-
-            const data = await response.json();
-            if (data.error) throw new Error(data.error);
-
-            const current = data.current;
-            const max = data.max;
-
-            if (typeof current === 'number' && typeof max === 'number' && max > 0) {
-                const percent = Math.round((current / max) * 100);
-                gradeValueSpan.textContent = `${percent}%`;
-                gradeValueSpan.style.color = '#222';
-            } else {
-                gradeValueSpan.textContent = 'N/A';
-                gradeStatusOverlay.textContent = 'Invalid data from server.';
-                gradeStatusOverlay.style.display = 'block';
+            // Ensure elements exist before trying to access properties
+            if (gradeLoader) gradeLoader.style.display = 'inline-block';
+            if (gradeValueSpan) {
+                gradeValueSpan.textContent = 'Loading...';
+                gradeValueSpan.style.color = '#4b5563'; // Neutral color during loading
             }
+            if (gradeStatusOverlay) gradeStatusOverlay.style.display = 'none';
 
-        } catch (err) {
-            console.error(err);
-            gradeValueSpan.textContent = 'Error';
-            gradeStatusOverlay.textContent = 'Could not load grade.';
-            gradeStatusOverlay.style.display = 'block';
-        } finally {
-            gradeLoader.style.display = 'none';
+            try {
+                const response = await fetch(GOOGLE_APPS_SCRIPT_URL);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                // Assuming the grade data format from the script is { current: number, max: number }
+                // If your Google App Script returns different data for the "grade", adjust this logic.
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                const current = data.current;
+                const max = data.max;
+
+                if (typeof current === 'number' && typeof max === 'number' && max > 0) {
+                    const percent = Math.round((current / max) * 100);
+                    if (gradeValueSpan) {
+                        gradeValueSpan.textContent = `${percent}%`;
+                        gradeValueSpan.style.color = '#10B981'; // Green for success
+                    }
+                } else {
+                    throw new Error("Invalid grade data received.");
+                }
+
+            } catch (err) {
+                console.error("Failed to fetch grade:", err);
+                if (gradeValueSpan) {
+                    gradeValueSpan.textContent = 'Error';
+                    gradeValueSpan.style.color = '#EF4444'; // Red for error
+                }
+                if (gradeStatusOverlay) {
+                    gradeStatusOverlay.textContent = 'Could not load grade.';
+                    gradeStatusOverlay.style.display = 'block';
+                }
+            } finally {
+                if (gradeLoader) gradeLoader.style.display = 'none'; // Always hide loader in the end
+            }
         }
-    }
 
-    document.addEventListener('DOMContentLoaded', fetchGrade);
-
-    
         // Function to check password for "Hif Lumen" access
         function checkPassword() {
             // Using a simple prompt; consider a custom modal for better UX
             const userInput = prompt("Enter password to access Hif Lumen:");
-            if (userInput === "123") {
+            if (userInput === "123") { // Replace "123" with your actual password
                 window.open("https://chatgpt.com/share/68287b74-1070-8001-be40-25ccc12da934", "_blank");
             } else {
                 // Using a simple alert; consider a custom modal for better UX
@@ -378,14 +339,10 @@
 
         // Function to open AI Tutor link
         function openAITutor() {
-            window.open("ai chat.html", "_blank");
-            
-            // Function to open grades link
-    function grades() {
-        window.open("grades.html", "_blank");
+            window.open("ai chat.html", "_blank"); // Ensure 'ai chat.html' is in the correct path
         }
 
-        // Initialize Lucide icons (for the new section icons)
+        // Initialize Lucide icons
         lucide.createIcons();
 
         // Fetch grade when the DOM is fully loaded
