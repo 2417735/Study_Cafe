@@ -1,29 +1,79 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Personal Website</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-    body { background-color: #f0f0f5; color: #333; line-height: 1.6; }
-    .main-container { display: flex; min-height: 100vh; }
-    .panel { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 40px; text-align: center; transition: all 0.3s ease; }
-    .panel:hover { flex: 1.5; }
-    .black-panel { background-color: #222; color: white; }
-    .blue-panel { background-color: #0085ca; color: white; }
-    .white-panel { background-color: white; color: #222; }
-    .btn { padding: 12px 25px; border: 2px solid currentColor; border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s; display: inline-block; border-width: 3px; }
-    .btn:hover { background-color: white; color: #222; }
-    .black-outline { border-color: black; color: black; }
-    .pink-outline { border-color: #ff69b4; color: #ff69b4; }
-    .bio-fixed { 
-      position: fixed; 
-      bottom: 10px; 
-      left: 10px; 
-      font-family: 'Courier New', monospace; 
-      font-size: 0.9rem; 
-      background: rgba(255, 255, 255, 0.8); 
-      padding: 10px; 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      background-color: #f0f0f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    .main-container {
+      display: flex;
+      min-height: 100vh;
+    }
+    .panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .panel:hover {
+      flex: 1.5;
+    }
+    .black-panel {
+      background-color: #222;
+      color: white;
+    }
+    .blue-panel {
+      background-color: #0085ca;
+      color: white;
+    }
+    .white-panel {
+      background-color: white;
+      color: #222;
+    }
+    .btn {
+      padding: 12px 25px;
+      border: 3px solid currentColor;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    .btn:hover {
+      background-color: white;
+      color: #222;
+    }
+    .black-outline {
+      border-color: black;
+      color: black;
+    }
+    .pink-outline {
+      border-color: #ff69b4;
+      color: #ff69b4;
+    }
+    .bio-fixed {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px;
       border-radius: 8px;
       border: 1px solid #ccc;
     }
@@ -77,25 +127,28 @@
       <p>Learn more about me, my academic journey, and research interests.</p>
       <a href="https://docs.google.com/document/d/1xe9krDjvvUrDFGY1bn4iDg_NHSHtk3PP5S_SjNl0-rQ/edit?usp=sharing" class="btn black-outline" target="_blank">README</a>
       <h3>Project</h3>
-      <p> Team - PRESS " ENTER " .</p>
+      <p>Team - PRESS " ENTER ".</p>
       <a href="https://2417735.github.io/crypterror/" class="btn black-outline" target="_blank">crypterror</a>
-    </div>s
-    
+    </div>
+
     <div class="panel blue-panel">
       <h2>Assignments</h2>
       <p>Access my assignments and projects.</p>
       <a href="https://drive.google.com/drive/folders/1HEdPj6teJZ1kTmk-r2uzcGFjHI3ncf54" class="btn black-outline" target="_blank">Open Assignments</a>
     </div>
-     <div class="panel meroon-panel">
-      <h2>Virtual library</h2>
-      <p>project.</p>
-      <a href="https://drive.google.com/drive/folders/1mHxn9k3QIyhbLMQW3lqhFvjcAtnh7va-?usp=drive_link" target="_blank">Open Assignments</a>
+
+    <div class="panel white-panel">
+      <h2>Virtual Library</h2>
+      <p>Project.</p>
+      <a href="https://drive.google.com/drive/folders/1mHxn9k3QIyhbLMQW3lqhFvjcAtnh7va-?usp=drive_link" class="btn black-outline" target="_blank">Open Assignments</a>
     </div>
+
     <div class="panel white-panel">
       <h2>Meet Me!</h2>
       <p>Schedule a meeting by filling out my form.</p>
       <a href="https://forms.gle/7DCt8EuLRgdPb9p5A" class="btn black-outline" target="_blank">Book Appointment</a>
       <button class="btn pink-outline pin-button" onclick="checkPassword()">Hif Lumen</button>
+      <button class="btn pink-outline pin-button" onclick="openAITutor()">AI as a Tutor</button>
     </div>
   </div>
 
@@ -105,7 +158,7 @@
 
   <script>
     async function fetchGrade() {
-      const scriptUrl = "https://script.google.com/macros/s/AKfycbyrv47SQm8fSjKYhNt5izqHG0sD2AHEZSqH5GoCDFxL3XTwSNMV-B4cjusnh884o3n0uA/exec"; 
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbyrv47SQm8fSjKYhNt5izqHG0sD2AHEZSqH5GoCDFxL3XTwSNMV-B4cjusnh884o3n0uA/exec";
       const assignments = 85;
       const exams = 90;
 
@@ -132,6 +185,10 @@
       } else {
         alert("Incorrect password.");
       }
+    }
+
+    function openAITutor() {
+      window.open("ai chat.html", "_blank");
     }
 
     fetchGrade();
