@@ -205,7 +205,7 @@
   </div>
 
   <script>
-    const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby3Ka5_TJzmfr_iyHXdC6GQxjzEk5m1-zEGCF3A4zaN/dev";
+    const GOOGLE_APPS_SCRIPT_URL = "https://script.googleusercontent.com/a/macros/donga.ac.kr/echo?user_content_key=AehSKLgsWmgERdsRJEWdY3bbusUYmzlHmQAjhXCQDEcockIAVrq2D2gcjj8bR9XER5gzPCtv0PHYC6c-3nx8lRg42MGbHLxPOwcXrJ_xrBJKhL_lz9hJD-CWTi3fm4l-DcM3jOVUTCbQylFeCVxZ2bDUCz5plGy8dbXOBfcHF36vSx9A-XHSIq1DYrtcVByS1s8jRczWf_RVnionKRvfKUBf7fOeEqYJJANccHn54W1xXDuEoEfWxlD2JEkQ41a_EoJYnM-2qFrYwSM7uHkrIx4&lib=MwRwjs1Y-2dWdCdr1hmgm9ArgiwDOqQhJ";
 
     async function fetchGrade() {
       const loader = document.getElementById('gradeLoader');
