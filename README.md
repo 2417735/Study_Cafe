@@ -91,38 +91,18 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* Custom button for sidebar-like resource buttons */
-        .btn-resource {
-            padding: 12px 20px;
-            border: 2px solid #d1d5db; /* Light gray border */
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600; /* Semi-bold */
-            text-align: center;
-            transition: all 0.3s ease;
-            display: block;
-            font-size: 0.95rem;
-            color: #4b5563; /* Darker gray text */
-            background-color: #f9fafb; /* Very light background */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        /* Custom button for sidebar-like resource buttons (now used for dropdown items) */
+        .btn-resource-dropdown {
+            @apply block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
-        .btn-resource:hover {
-            background-color: #e0f2fe; /* Light blue on hover */
-            border-color: #93c5fd; /* Lighter blue border on hover */
-            color: #2563eb; /* Darker blue text on hover */
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        /* Specific coloring for pink buttons */
-        .btn-resource.pink {
-            border-color: #fbcfe8; /* Light pink border */
+        /* Specific coloring for pink buttons (if still needed, though now part of dropdown items) */
+        .btn-resource-dropdown.pink {
             color: #db2777; /* Dark pink text */
-            background-color: #ffe4e6; /* Light pink background */
         }
-        .btn-resource.pink:hover {
-            background-color: #fda4af; /* Darker pink on hover */
-            border-color: #f472b6;
-            color: white;
+        .btn-resource-dropdown.pink:hover {
+            background-color: #ffe4e6; /* Light pink background on hover */
+            color: #db2777;
         }
 
         /* Animation for background blobs */
@@ -231,7 +211,7 @@
                 <a href="#academic" class="hover:text-blue-600 transition-colors duration-200 py-1">Academic</a>
                 <a href="#connect" class="hover:text-blue-600 transition-colors duration-200 py-1">Connect</a>
                 <a href="#hikes" class="hover:text-blue-600 transition-colors duration-200 py-1">Adventures</a>
-                <a href="#resources" class="hover:text-blue-600 transition-colors duration-200 py-1">Resources</a>
+                <!-- The 'Resources' link is now implicitly covered by the dropdown -->
             </nav>
 
             <!-- Mobile Menu Toggle (Currently just an icon, would require JS for full functionality) -->
@@ -262,19 +242,30 @@
                 <p class="text-gray-600 text-lg leading-relaxed max-w-xl mb-8">
                     A passionate student exploring the realms of AI, web development, and cybersecurity. Dedicated to continuous learning and building impactful projects.
                 </p>
-                <!-- Combined buttons from your original sidebar -->
+                <!-- Combined buttons and new dropdown -->
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="https://docs.google.com/document/d/1xe9krDjvvUrDFGY1bn4iDg_NHSHtk3PP5S_SjNl0-rQ/edit?usp=sharing" class="btn-primary text-white px-8 py-3 rounded-xl text-lg font-medium" target="_blank">README</a>
                     <a href="https://2417735.github.io/crypterror/" class="btn-secondary px-8 py-3 rounded-xl text-lg font-medium" target="_blank">Crypterror</a>
+                    
+                    <!-- Dropdown Container -->
+                    <div class="relative inline-block text-left">
+                        <button id="dropdownButton" class="btn-secondary px-8 py-3 rounded-xl text-lg font-medium inline-flex items-center justify-center w-full sm:w-auto">
+                            More Resources
+                            <svg class="ml-2 -mr-1 w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div id="dropdownMenu" class="origin-top-right absolute right-0 sm:left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden" role="menu" aria-orientation="vertical" aria-labelledby="dropdownButton">
+                            <div class="py-1" role="none">
+                                <a href="https://drive.google.com/drive/folders/1HEdPj6teJZ1kTmk-r2uzcGFjHI3ncf54" class="btn-resource-dropdown" role="menuitem" target="_blank">Assignments</a>
+                                <a href="https://drive.google.com/drive/folders/1mHxn9k3QIyhbLMQW3lqhFvjcAtnh7va-?usp=drive_link" class="btn-resource-dropdown" role="menuitem" target="_blank">Library</a>
+                                <a href="https://forms.gle/7DCt8EuLRgdPb9p5A" class="btn-resource-dropdown" role="menuitem" target="_blank">Book Appointment</a>
+                                <button class="btn-resource-dropdown pink" role="menuitem" onclick="showPasswordModal()">Hif Lumen</button>
+                                <button class="btn-resource-dropdown pink" role="menuitem" onclick="openAITutor()">AI Tutor</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <!-- Additional Buttons section - improved grid for smaller screens -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full lg:w-auto">
-                <a href="https://drive.google.com/drive/folders/1HEdPj6teJZ1kTmk-r2uzcGFjHI3ncf54" class="btn-resource" target="_blank">Assignments</a>
-                <a href="https://drive.google.com/drive/folders/1mHxn9k3QIyhbLMQW3lqhFvjcAtnh7va-?usp=drive_link" class="btn-resource" target="_blank">Library</a>
-                <a href="https://forms.gle/7DCt8EuLRgdPb9p5A" class="btn-resource" target="_blank">Book Appointment</a>
-                <button class="btn-resource pink" onclick="showPasswordModal()">Hif Lumen</button>
-                <button class="btn-resource pink" onclick="openAITutor()">AI Tutor</button>
             </div>
         </section>
 
@@ -541,10 +532,33 @@
             window.open("ai chat.html", "_blank"); // Ensure 'ai chat.html' is in the correct path
         }
 
-        // Initialize Lucide icons when the DOM is fully loaded
+        // Dropdown logic
+        const dropdownButton = document.getElementById('dropdownButton');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        function toggleDropdown() {
+            if (dropdownMenu) {
+                dropdownMenu.classList.toggle('hidden');
+            }
+        }
+
+        function closeDropdown(event) {
+            // Check if the click was outside the dropdown button and the dropdown menu
+            if (dropdownMenu && !dropdownMenu.contains(event.target) && !dropdownButton.contains(event.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        }
+
+        // Event listeners for dropdown
         document.addEventListener('DOMContentLoaded', () => {
+            if (dropdownButton) {
+                dropdownButton.addEventListener('click', toggleDropdown);
+            }
+            document.addEventListener('click', closeDropdown);
+
+            // Initialize Lucide icons and fetch grade information on load
             lucide.createIcons();
-            fetchGrade(); // Fetch grade information on load
+            fetchGrade(); 
         });
     </script>
 </body>
