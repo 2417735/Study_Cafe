@@ -7,19 +7,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js"></script>
+    
     <style>
+        /* Base body styling with Inter font and background image */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Light background similar to the Alex Smith image */
+            background-color: #f0f4f8; /* Fallback background color */
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 1rem; /* Add some padding around the main container */
+
+            /* Background image styles */
+            background-image: url('https://images.unsplash.com/photo-1519681393784-a9398f6d2e80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover; /* Ensures the image covers the entire body */
+            background-position: center; /* Centers the background image */
+            background-attachment: fixed; /* Makes the background image fixed while content scrolls */
+            background-repeat: no-repeat; /* Prevents repeating of the background image */
         }
-        /* Custom button styling for gradient and hover effects from Alex Smith design */
+
+        /* Custom button styling for gradient and hover effects */
         .btn-primary {
             background-image: linear-gradient(to right, #4F80E2 0%, #3B82F6 100%);
             transition: all 0.3s ease;
@@ -40,7 +48,7 @@
             box-shadow: 0 4px 10px 0 rgba(59, 130, 246, 0.2);
         }
 
-        /* Styling for the grade overview box, adapted for the light theme */
+        /* Styling for the grade overview box */
         .grade-overview-box-alt {
             background-color: #ffffff;
             border: 1px solid #e0e0e0;
@@ -64,6 +72,7 @@
             font-weight: bold;
             margin: 2px 0;
         }
+        /* Loading spinner animation */
         .grade-loader-alt {
             width: 16px;
             height: 16px;
@@ -82,7 +91,7 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        /* Custom button for sidebar buttons, adapted for light theme */
+        /* Custom button for sidebar-like resource buttons */
         .btn-resource {
             padding: 12px 20px;
             border: 2px solid #d1d5db; /* Light gray border */
@@ -128,6 +137,76 @@
         .blob-bottom-right {
             animation: blob-animation 12s ease-in-out infinite alternate-reverse;
         }
+
+        /* Modal specific styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            position: relative; /* For the close button positioning */
+        }
+        .modal-overlay.open .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .modal-close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6B7280;
+            transition: color 0.2s ease;
+        }
+        .modal-close-button:hover {
+            color: #1F2937;
+        }
+        .modal-input {
+            width: 100%;
+            padding: 0.75rem;
+            margin-top: 1rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+        .modal-action-button {
+            @apply mt-4 px-6 py-2 rounded-lg font-medium text-white;
+            background-image: linear-gradient(to right, #4F80E2 0%, #3B82F6 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px 0 rgba(0, 118, 255, 0.39);
+        }
+        .modal-action-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px 0 rgba(0, 118, 255, 0.49);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -146,15 +225,16 @@
                 <span class="text-2xl font-semibold text-gray-800">ALAM AL KAHAF</span>
             </div>
 
-            <!-- Navigation Links (Placeholder - can be adapted from your sidebar if fewer) -->
+            <!-- Navigation Links -->
             <nav class="hidden lg:flex space-x-6 text-gray-600 font-medium">
                 <a href="#about" class="hover:text-blue-600 transition-colors duration-200 py-1">About Me</a>
                 <a href="#academic" class="hover:text-blue-600 transition-colors duration-200 py-1">Academic</a>
                 <a href="#connect" class="hover:text-blue-600 transition-colors duration-200 py-1">Connect</a>
+                <a href="#hikes" class="hover:text-blue-600 transition-colors duration-200 py-1">Adventures</a>
                 <a href="#resources" class="hover:text-blue-600 transition-colors duration-200 py-1">Resources</a>
             </nav>
 
-            <!-- Mobile Menu Toggle (No "Get it Now" as it was from previous design) -->
+            <!-- Mobile Menu Toggle (Currently just an icon, would require JS for full functionality) -->
             <div class="flex items-center space-x-4">
                 <button class="lg:hidden text-gray-600 focus:outline-none p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
                     <!-- Hamburger Icon from Lucide -->
@@ -170,7 +250,9 @@
             <!-- Profile Image -->
             <div class="flex-shrink-0 mb-8 lg:mb-0 lg:mr-16">
                 <!-- Profile picture from your previous code -->
-                <img src="IMG_0503.jpg" alt="ALAM AL KAHAF Profile Picture" class="w-48 h-48 rounded-full object-cover shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-300"/>
+                <img src="IMG_0503.jpg" alt="ALAM AL KAHAF Profile Picture" 
+                     class="w-48 h-48 rounded-full object-cover shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-300"
+                     onerror="this.onerror=null;this.src='https://placehold.co/192x192/E0F2FE/2563EB?text=Profile';">
             </div>
 
             <!-- Hero Content -->
@@ -186,12 +268,12 @@
                     <a href="https://2417735.github.io/crypterror/" class="btn-secondary px-8 py-3 rounded-xl text-lg font-medium" target="_blank">Crypterror</a>
                 </div>
             </div>
-            <!-- Additional Buttons -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+            <!-- Additional Buttons section - improved grid for smaller screens -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full lg:w-auto">
                 <a href="https://drive.google.com/drive/folders/1HEdPj6teJZ1kTmk-r2uzcGFjHI3ncf54" class="btn-resource" target="_blank">Assignments</a>
                 <a href="https://drive.google.com/drive/folders/1mHxn9k3QIyhbLMQW3lqhFvjcAtnh7va-?usp=drive_link" class="btn-resource" target="_blank">Library</a>
                 <a href="https://forms.gle/7DCt8EuLRgdPb9p5A" class="btn-resource" target="_blank">Book Appointment</a>
-                <button class="btn-resource pink" onclick="checkPassword()">Hif Lumen</button>
+                <button class="btn-resource pink" onclick="showPasswordModal()">Hif Lumen</button>
                 <button class="btn-resource pink" onclick="openAITutor()">AI Tutor</button>
             </div>
         </section>
@@ -246,6 +328,56 @@
             </div>
         </section>
 
+        <!-- Recent Adventures Section -->
+        <section id="hikes" class="px-6 py-12 lg:py-16">
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-10 text-center lg:text-left">Recent Adventures</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <!-- Hike 1: IMG_1777.jpg (Panoramic view) -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                    <img src="IMG_1777.jpg" alt="Hiking View over Busan" class="w-full h-64 object-cover"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0F2FE/2563EB?text=Hike+View';">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Siyak Mountain Summit</h3>
+                        <p class="text-gray-600 mb-4">
+                            A breathtaking hike up Siyak Mountain (510m) offering panoramic views of Busan, South Korea.
+                            The clear skies provided an incredible backdrop for this memorable ascent.
+                        </p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin inline-block mr-1"><path d="M12 17.5l-4-4.5a6 6 0 1 1 8 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Busan, South Korea
+                            </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar inline-block mr-1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                May 2025
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hike 2: IMG_1894.jpg (Summit marker) -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
+                    <img src="IMG_1894.jpg" alt="Siyak Mountain stone marker" class="w-full h-64 object-cover"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0F2FE/2563EB?text=Hike+Marker';">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Siyak Mountain Summit Marker</h3>
+                        <p class="text-gray-600 mb-4">
+                            Reached the summit of Siyak Mountain (시약산) along the Nakdong Jeongmaek (낙동 정맥), standing tall at 510 meters. A rewarding experience!
+                        </p>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin inline-block mr-1"><path d="M12 17.5l-4-4.5a6 6 0 1 1 8 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                Siyak Mountain, Korea
+                            </span>
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar inline-block mr-1"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                May 2025
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Connect Section -->
         <section id="connect" class="px-6 py-12 lg:py-16">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-10 text-center lg:text-left">Connect With Me</h2>
@@ -265,17 +397,36 @@
 
     </div>
 
-    <!-- JavaScript for Grade Fetching and Button Actions -->
+    <!-- Password Modal Structure -->
+    <div id="passwordModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="closePasswordModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Access Hif Lumen</h3>
+            <p class="text-gray-600">Please enter the password to proceed.</p>
+            <input type="password" id="passwordInput" class="modal-input" placeholder="Enter password" onkeydown="handlePasswordEnter(event)">
+            <p id="passwordError" class="text-red-500 text-sm mt-2 hidden">Incorrect password. Please try again.</p>
+            <button class="modal-action-button" onclick="verifyPassword()">Submit</button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Lucide Icons, Grade Fetching, Button Actions, and Modals -->
+    <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js"></script>
     <script>
         // Updated Google Apps Script URL (consistent with grades.html)
         const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuQ5DsbxhXLm2uqi_Hqm41ugjPYuRZpc1kEmF-rOuJA_FyESsoW_P6JdRkBLVMut79vQ/exec";
+        const CORRECT_PASSWORD = "123"; // Define your password here
 
+        /**
+         * Fetches and displays the current overall grade from Google Apps Script.
+         */
         async function fetchGrade() {
             const gradeLoader = document.getElementById('gradeLoader');
             const gradeValueSpan = document.getElementById('gradeValue');
             const gradeStatusOverlay = document.getElementById('gradeStatusOverlay');
 
-            // Ensure elements exist before trying to access properties
+            // Show loading state
             if (gradeLoader) gradeLoader.style.display = 'inline-block';
             if (gradeValueSpan) {
                 gradeValueSpan.textContent = 'Loading...';
@@ -292,7 +443,6 @@
 
                 const data = await response.json();
                 // Assuming the grade data format from the script is { current: number, max: number }
-                // If your Google App Script returns different data for the "grade", adjust this logic.
                 if (data.error) {
                     throw new Error(data.error);
                 }
@@ -321,32 +471,81 @@
                     gradeStatusOverlay.style.display = 'block';
                 }
             } finally {
-                if (gradeLoader) gradeLoader.style.display = 'none'; // Always hide loader in the end
+                // Hide loader regardless of success or failure
+                if (gradeLoader) gradeLoader.style.display = 'none';
             }
         }
 
-        // Function to check password for "Hif Lumen" access
-        function checkPassword() {
-            // Using a simple prompt; consider a custom modal for better UX
-            const userInput = prompt("Enter password to access Hif Lumen:");
-            if (userInput === "123") { // Replace "123" with your actual password
+        /**
+         * Shows the password input modal.
+         */
+        function showPasswordModal() {
+            const modal = document.getElementById('passwordModal');
+            const passwordInput = document.getElementById('passwordInput');
+            const passwordError = document.getElementById('passwordError');
+
+            if (modal) {
+                modal.classList.add('open');
+            }
+            if (passwordInput) {
+                passwordInput.value = ''; // Clear previous input
+                passwordInput.focus();    // Focus the input field
+            }
+            if (passwordError) {
+                passwordError.style.display = 'none'; // Hide error message
+            }
+        }
+
+        /**
+         * Closes the password input modal.
+         */
+        function closePasswordModal() {
+            const modal = document.getElementById('passwordModal');
+            if (modal) {
+                modal.classList.remove('open');
+            }
+        }
+
+        /**
+         * Verifies the entered password and grants access or shows an error.
+         */
+        function verifyPassword() {
+            const passwordInput = document.getElementById('passwordInput');
+            const passwordError = document.getElementById('passwordError');
+            const userInput = passwordInput ? passwordInput.value : '';
+
+            if (userInput === CORRECT_PASSWORD) {
                 window.open("https://chatgpt.com/share/68287b74-1070-8001-be40-25ccc12da934", "_blank");
+                closePasswordModal();
             } else {
-                // Using a simple alert; consider a custom modal for better UX
-                alert("Incorrect password. Please try again.");
+                if (passwordError) {
+                    passwordError.style.display = 'block'; // Show error message
+                }
             }
         }
 
-        // Function to open AI Tutor link
+        /**
+         * Handles the 'Enter' key press in the password input field.
+         * @param {KeyboardEvent} event - The keyboard event object.
+         */
+        function handlePasswordEnter(event) {
+            if (event.key === 'Enter') {
+                verifyPassword();
+            }
+        }
+
+        /**
+         * Function to open AI Tutor link.
+         */
         function openAITutor() {
             window.open("ai chat.html", "_blank"); // Ensure 'ai chat.html' is in the correct path
         }
 
-        // Initialize Lucide icons
-        lucide.createIcons();
-
-        // Fetch grade when the DOM is fully loaded
-        document.addEventListener('DOMContentLoaded', fetchGrade);
+        // Initialize Lucide icons when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            fetchGrade(); // Fetch grade information on load
+        });
     </script>
 </body>
 </html>
