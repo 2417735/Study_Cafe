@@ -188,8 +188,10 @@
                 </div>
             </div>
          <!-- JavaScript for Grade Fetching and Button Actions -->
+ 
     <script>
         // Updated Google Apps Script URL
+    
         const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuQ5DsbxhXLm2uqi_Hqm41ugjPYuRZpc1kEmF-rOuJA_FyESsoW_P6JdRmBLVMut79vQ/exec";
 
         // Function to fetch the grade from the Google Apps Script URL
