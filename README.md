@@ -379,6 +379,10 @@
         // Function to open AI Tutor link
         function openAITutor() {
             window.open("ai chat.html", "_blank");
+            
+            // Function to open grades link
+    function grades() {
+        window.open("grades.html", "_blank");
         }
 
         // Initialize Lucide icons (for the new section icons)
