@@ -187,20 +187,62 @@
                     <a href="https://2417735.github.io/crypterror/" class="btn-secondary px-8 py-3 rounded-xl text-lg font-medium" target="_blank">Crypterror</a>
                 </div>
             </div>
-        </section>
+         <!-- JavaScript for Grade Fetching and Button Actions -->
+    <script>
+        // Updated Google Apps Script URL
+        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuQ5DsbxhXLm2uqi_Hqm41ugjPYuRZpc1kEmF-rOuJA_FyESsoW_P6JdRmBLVMut79vQ/exec";
 
-        <!-- Grade Overview and Additional Resources Section -->
-        <section id="resources" class="px-6 py-12 lg:py-16 bg-blue-50 rounded-2xl mb-12 lg:mb-16 shadow-inner">
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-10 text-center lg:text-left">My Resources & Tools</h2>
+        // Function to fetch the grade from the Google Apps Script URL
+        async function fetchGrade() {
+            const gradeLoader = document.getElementById('gradeLoader');
+            const gradeValueSpan = document.getElementById('gradeValue');
+            const gradeStatusOverlay = document.getElementById('gradeStatusOverlay');
 
-            <!-- Grade Overview Box -->
-            <div class="grade-overview-box-alt">
-                <span>My Grade:</span>
-                <span id="gradeValue">Loading...</span>
-                <span id="gradeLoader" class="grade-loader-alt" style="display:none;"></span>
-                <div id="gradeStatusOverlay" class="grade-error-text-alt" style="display:none;"></div>
-            </div>
+            // Show loader and hide error/value
+            if (gradeLoader) gradeLoader.style.display = 'inline-block';
+            if (gradeValueSpan) {
+                gradeValueSpan.textContent = 'Loading...';
+                gradeValueSpan.style.color = '#4b5563'; // Neutral color during loading
+            }
+            if (gradeStatusOverlay) gradeStatusOverlay.style.display = 'none';
 
+            try {
+                const response = await fetch(GOOGLE_APPS_SCRIPT_URL);
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+
+                const current = data.current;
+                const max = data.max;
+
+                if (typeof current === 'number' && typeof max === 'number' && max > 0) {
+                    const percent = Math.round((current / max) * 100);
+                    if (gradeValueSpan) {
+                        gradeValueSpan.textContent = `${percent}%`;
+                        gradeValueSpan.style.color = '#10B981'; // Green for success
+                    }
+                } else {
+                    throw new Error("Invalid grade data received.");
+                }
+            } catch (err) {
+                console.error("Failed to fetch grade:", err);
+                if (gradeValueSpan) {
+                    gradeValueSpan.textContent = 'Error';
+                    gradeValueSpan.style.color = '#EF4444'; // Red for error
+                }
+                if (gradeStatusOverlay) {
+                    gradeStatusOverlay.textContent = 'Could not load grade.';
+                    gradeStatusOverlay.style.display = 'block';
+                }
+            } finally {
+                if (gradeLoader) gradeLoader.style.display = 'none'; // Always hide loader in the end
+            }
+        }
             <!-- Additional Buttons -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <a href="https://drive.google.com/drive/folders/1HEdPj6teJZ1kTmk-r2uzcGFjHI3ncf54" class="btn-resource" target="_blank">Assignments</a>
