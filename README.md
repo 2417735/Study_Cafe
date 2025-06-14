@@ -335,7 +335,7 @@
         <section id="hikes" class="px-6 py-12 lg:py-16">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-10 text-center lg:text-left">Recent Adventures</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <!-- Hike 1: IMG_1777.jpg (Panoramic view) -->
+                <!-- Hike 1: IMG_1894.jpeg (Panoramic view) -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
                     <img src="IMG_1894.jpeg" alt="Hiking View over Busan" class="w-full h-64 object-cover"
                          onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0F2FE/2563EB?text=Hike+View';">
