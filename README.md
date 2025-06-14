@@ -320,19 +320,18 @@
                             <li><strong>Status:</strong> Bachelor</li>
                             <!-- Grade Display Area -->
                             <li>
-                              <a href="https://script.google.com/macros/s/AKfycby3Ka5_TJzmfr_iyHXdC6GQxjzEk5m1-zEGCF3A4zaN/dev" class="btn-primary text-white px-8 py-3 rounded-xl text-lg font-medium" target="_blank">
                                 <strong>Current Overall Grade:</strong> 
-                                <div class="grade-overview-box-alt inline-block ml-2 p-2">
-                                    <span id="gradeValue">Loading...</span>
-                                    <span id="gradeLoader" class="grade-loader-alt" style="display: none;"></span>
-                                    <span id="gradeStatusOverlay" class="grade-error-text-alt" style="display: none;"></span>
+                                <div class="flex items-center mt-2"> <div class="grade-overview-box-alt inline-block p-2 mr-3">
+                                        <span id="gradeValue">Loading...</span>
+                                        <span id="gradeLoader" class="grade-loader-alt" style="display: none;"></span>
+                                        <span id="gradeStatusOverlay" class="grade-error-text-alt" style="display: none;"></span>
+                                    </div>
+                                    <button onclick="fetchGrade()" class="btn-secondary px-4 py-2 rounded-lg text-sm font-medium">
+                                        Check Grades
+                                        <a href="https://script.google.com/macros/s/AKfycby3Ka5_TJzmfr_iyHXdC6GQxjzEk5m1-zEGCF3A4zaN/dev" 
+                                    </button>
                                 </div>
                             </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Recent Adventures Section -->
         <section id="hikes" class="px-6 py-12 lg:py-16">
@@ -419,7 +418,8 @@
 
     <!-- JavaScript for Lucide Icons, Grade Fetching, Button Actions, and Modals -->
     <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js"></script>
-    <script>
+    
+    <script> 
         // Updated Google Apps Script URL (consistent with grades.html)
         const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuQ5DsbxhXLm2uqi_Hqm41ugjPYuRZpc1kEmF-rOuJA_FyESsoW_P6JdRkBLVMut79vQ/exec";
 
