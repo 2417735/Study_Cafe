@@ -297,7 +297,7 @@
                         <ul class="list-none p-0 text-gray-600">
                             <li><strong>Name:</strong> ALAM AL KAHAF</li>
                             <li><strong>Phone:</strong> 010-9672-4615</li>
-                            <li><strong>Email:</strong> your.email@example.com</li>
+                            <li><strong>Email:</strong> 2417735@donga.ac.kr</li>
                             <li><strong>Location:</strong> Busan, South Korea</li>
                         </ul>
                     </div>
@@ -313,9 +313,9 @@
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-2">Academic Status</h3>
                         <ul class="list-none p-0 text-gray-600">
-                            <li><strong>University:</strong> [Your University Name]</li>
-                            <li><strong>Major:</strong> [Your Major]</li>
-                            <li><strong>Status:</strong> [e.g., Undergraduate, Graduate]</li>
+                            <li><strong>University:</strong> Donga University</li>
+                            <li><strong>Major:</strong> IBM</li>
+                            <li><strong>Status:</strong> Bachelor</li>
                             <!-- Grade Display Area -->
                             <li>
                                 <strong>Current Overall Grade:</strong> 
@@ -337,7 +337,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 <!-- Hike 1: IMG_1777.jpg (Panoramic view) -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
-                    <img src="IMG_1777.jpg" alt="Hiking View over Busan" class="w-full h-64 object-cover"
+                    <img src="IMG_1894.jpeg" alt="Hiking View over Busan" class="w-full h-64 object-cover"
                          onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0F2FE/2563EB?text=Hike+View';">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-800 mb-2">Siyak Mountain Summit</h3>
@@ -357,7 +357,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Hike 2: IMG_1894.jpg (Summit marker) -->
+                <!-- Hike 2: IMG_1775.jpeg (Summit marker) -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
                     <img src="IMG_1894.jpg" alt="Siyak Mountain stone marker" class="w-full h-64 object-cover"
                          onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0F2FE/2563EB?text=Hike+Marker';">
