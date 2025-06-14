@@ -272,6 +272,11 @@
                                 <ul>
                                     <li><a href="https://forms.gle/7DCt8EuLRgdPb9p5A" class="btn-resource-dropdown" role="menuitem" target="_blank">Book Appointment</a></li>
                                     <li><button class="btn-resource-dropdown pink" role="menuitem" onclick="showPasswordModal()">Hif Lumen</button></li>
+                                     <li><button class="btn-resource-dropdown pink" role="menuitem" onclick="Grades()"> Grade</button></li> 
+                                     <a href="https://script.google.com/macros/s/AKfycby3Ka5_TJzmfr_iyHXdC6GQxjzEk5m1-zEGCF3A4zaN/dev" class="btn-primary text-white px-8 py-3 rounded-xl text-lg font-medium" target="_blank">
+    Button Text Here
+</a>
+                                     
                                     <li><button class="btn-resource-dropdown pink" role="menuitem" onclick="openAITutor()">AI Tutor</button></li>
                                 </ul>
                             </div>
@@ -419,7 +424,6 @@
     <script>
         // Updated Google Apps Script URL (consistent with grades.html)
         const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuQ5DsbxhXLm2uqi_Hqm41ugjPYuRZpc1kEmF-rOuJA_FyESsoW_P6JdRkBLVMut79vQ/exec";
-        const CORRECT_PASSWORD = "123"; // Define your password here
 
         /**
          * Fetches and displays the current overall grade from Google Apps Script.
