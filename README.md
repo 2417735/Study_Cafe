@@ -251,6 +251,7 @@
                 <!-- Combined buttons and new dropdown -->
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="https://docs.google.com/document/d/1xe9krDjvvUrDFGY1bn4iDg_NHSHtk3PP5S_SjNl0-rQ/edit?usp=sharing" class="btn-primary text-white px-8 py-3 rounded-xl text-lg font-medium" target="_blank">README</a>
+                    <a href="https://2417735.github.io/Foreign/" class="btn-primary text-white px-8 py-3 rounded-xl text-lg font-medium" target="_blank">Foreign</a>
                     <a href="https://2417735.github.io/crypterror/" class="btn-secondary px-8 py-3 rounded-xl text-lg font-medium" target="_blank">Crypterror</a>
                     
                     <!-- Dropdown Container -->
@@ -272,8 +273,6 @@
                                 <ul>
                                     <li><a href="https://forms.gle/7DCt8EuLRgdPb9p5A" class="btn-resource-dropdown" role="menuitem" target="_blank">Book Appointment</a></li>
                                     <li><button class="btn-resource-dropdown pink" role="menuitem" onclick="showPasswordModal()">Hif Lumen</button></li>
-
-                                     
                                     <li><button class="btn-resource-dropdown pink" role="menuitem" onclick="openAITutor()">AI Tutor</button></li>
                                 </ul>
                             </div>
@@ -321,17 +320,23 @@
                             <!-- Grade Display Area -->
                             <li>
                                 <strong>Current Overall Grade:</strong> 
-                                <div class="flex items-center mt-2"> <div class="grade-overview-box-alt inline-block p-2 mr-3">
-                                        <span id="gradeValue">Loading...</span>
-                                        <span id="gradeLoader" class="grade-loader-alt" style="display: none;"></span>
-                                        <span id="gradeStatusOverlay" class="grade-error-text-alt" style="display: none;"></span>
-                                    </div>
-                                    <button onclick="fetchGrade()" class="btn-secondary px-4 py-2 rounded-lg text-sm font-medium">
-                                        Check Grades
-                                        <a href="https://script.google.com/macros/s/AKfycby3Ka5_TJzmfr_iyHXdC6GQxjzEk5m1-zEGCF3A4zaN/dev" 
-                                    </button>
+                                <div class="grade-overview-box-alt inline-block p-2 ml-2">
+                                    <span id="gradeValue">Loading...</span>
+                                    <span id="gradeLoader" class="grade-loader-alt" style="display: none;"></span>
+                                    <span id="gradeStatusOverlay" class="grade-error-text-alt" style="display: none;"></span>
                                 </div>
                             </li>
+                        </ul>
+                        <!-- New "Check Grades" Button (separated) -->
+                        <div class="mt-4 text-center lg:text-left">
+                            <a href="https://script.google.com/macros/s/AKfycby3Ka5_TJzmfr_iyHXdC6GQxjzEk5m1-zEGCF3A4zaN/dev" target="_blank" class="btn-secondary px-6 py-2 rounded-lg text-base font-medium">
+                                Check Grades
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Recent Adventures Section -->
         <section id="hikes" class="px-6 py-12 lg:py-16">
@@ -419,12 +424,18 @@
     <!-- JavaScript for Lucide Icons, Grade Fetching, Button Actions, and Modals -->
     <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js"></script>
     
-    <script> 
-        // Updated Google Apps Script URL (consistent with grades.html)
-        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwuQ5DsbxhXLm2uqi_Hqm41ugjPYuRZpc1kEmF-rOuJA_FyESsoW_P6JdRkBLVMut79vQ/exec";
+    <script>
+        // Define your correct password here
+        const CORRECT_PASSWORD = "YOUR_SECRET_PASSWORD"; // <--- IMPORTANT: CHANGE THIS TO YOUR ACTUAL PASSWORD
+
+        // This URL is no longer used for fetching grades on this page as the button now directly links to it.
+        const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby3Ka5_TJzmfr_iyHXdC6GQxjzEk5m1-zEGCF3A4zaN/dev"; 
 
         /**
-         * Fetches and displays the current overall grade from Google Apps Script.
+         * The fetchGrade function is no longer called by the "Check Grades" button,
+         * as the button now directly links to the Google Apps Script URL.
+         * This function remains here in case other parts of the site need it,
+         * but its initial call on DOMContentLoaded has been removed.
          */
         async function fetchGrade() {
             const gradeLoader = document.getElementById('gradeLoader');
@@ -472,7 +483,7 @@
                     gradeValueSpan.style.color = '#EF4444'; // Red for error
                 }
                 if (gradeStatusOverlay) {
-                    gradeStatusOverlay.textContent = 'Could not load grade.';
+                    gradeStatusOverlay.textContent = `Error: ${err.message}`;
                     gradeStatusOverlay.style.display = 'block';
                 }
             } finally {
@@ -512,7 +523,7 @@
         }
 
         /**
-         * Verifies the entered password and grants access or shows an.
+         * Verifies the entered password and grants access or shows an error.
          */
         function verifyPassword() {
             const passwordInput = document.getElementById('passwordInput');
@@ -570,9 +581,11 @@
             }
             document.addEventListener('click', closeDropdown);
 
-            // Initialize Lucide icons and fetch grade information on load
+            // Initialize Lucide icons
             lucide.createIcons();
-            fetchGrade(); 
+            // The fetchGrade() call on load is now commented out/removed because the "Check Grades" button
+            // now directly links to the Google Apps Script URL.
+            // fetchGrade();
         });
     </script>
 </body>
