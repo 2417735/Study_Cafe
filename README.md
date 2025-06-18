@@ -3,9 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -197,22 +195,17 @@
     </style>
 </head>
 <body class="antialiased">
-    <!-- Main container with a rounded blue-ish border -->
     <div class="max-w-7xl mx-auto p-6 lg:p-10 bg-white rounded-3xl shadow-xl border-2 border-blue-100 relative overflow-hidden">
 
-        <!-- Background wave/blob shape - Enhanced for visual appeal -->
         <div class="absolute top-0 left-0 w-80 h-80 bg-blue-50 rounded-full opacity-70 -translate-x-1/2 -translate-y-1/2 blob-top-left filter blur-2xl"></div>
         <div class="absolute bottom-0 right-0 w-80 h-80 bg-blue-50 rounded-full opacity-70 translate-x-1/2 -translate-y-1/2 blob-bottom-right filter blur-2xl"></div>
 
-        <!-- Header Section -->
         <header class="flex flex-col lg:flex-row items-center justify-between py-4 px-6 mb-8 lg:mb-12 z-10 relative">
-            <!-- Logo/Name -->
             <div class="flex items-center mb-4 lg:mb-0">
                 <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-700 text-white flex items-center justify-center rounded-full text-xl font-bold mr-3 shadow-md">A</div>
                 <span class="text-2xl font-semibold text-gray-800">ALAM AL KAHAF</span>
             </div>
 
-            <!-- Navigation Links -->
             <nav class="hidden lg:flex space-x-6 text-gray-600 font-medium">
                 <a href="#about" class="hover:text-blue-600 transition-colors duration-200 py-1">About Me</a>
                 <a href="#academic" class="hover:text-blue-600 transition-colors duration-200 py-1">Academic</a>
@@ -220,10 +213,8 @@
                 <a href="#hikes" class="hover:text-blue-600 transition-colors duration-200 py-1">Adventures</a>
             </nav>
 
-            <!-- Mobile Menu Toggle (Currently just an icon, would require JS for full functionality) -->
             <div class="flex items-center space-x-4">
                 <button class="lg:hidden text-gray-600 focus:outline-none p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                    <!-- Hamburger Icon from Lucide -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
                         <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
                     </svg>
@@ -231,30 +222,24 @@
             </div>
         </header>
 
-        <!-- Hero Section -->
         <section class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-start px-6 pb-12 lg:pb-20 z-10 relative">
-            <!-- Profile Image -->
             <div class="flex-shrink-0 mb-8 lg:mb-0 lg:mr-16">
-                <!-- Profile picture from your previous code -->
                 <img src="IMG_0503.jpg" alt="ALAM AL KAHAF Profile Picture" 
                      class="w-48 h-48 rounded-full object-cover shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-300"
                      onerror="this.onerror=null;this.src='https://placehold.co/192x192/E0F2FE/2563EB?text=Profile';">
             </div>
 
-            <!-- Hero Content -->
             <div class="text-center lg:text-left">
                 <p class="text-blue-600 text-lg font-medium mb-2">Student & Developer</p>
                 <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">ALAM AL KAHAF</h1>
                 <p class="text-gray-600 text-lg leading-relaxed max-w-xl mb-8">
                     A passionate student exploring the realms of AI, web development, and cybersecurity. Dedicated to continuous learning and building impactful projects.
                 </p>
-                <!-- Combined buttons and new dropdown -->
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                     <a href="https://docs.google.com/document/d/1xe9krDjvvUrDFGY1bn4iDg_NHSHtk3PP5S_SjNl0-rQ/edit?usp=sharing" class="btn-primary text-white px-8 py-3 rounded-xl text-lg font-medium" target="_blank">README</a>
                     <a href="https://2417735.github.io/Foreign/" class="btn-primary text-white px-8 py-3 rounded-xl text-lg font-medium" target="_blank">Foreign</a>
                     <a href="https://2417735.github.io/crypterror/" class="btn-secondary px-8 py-3 rounded-xl text-lg font-medium" target="_blank">Crypterror</a>
                     
-                    <!-- Dropdown Container -->
                     <div class="relative inline-block text-left">
                         <button id="dropdownButton" class="btn-secondary px-8 py-3 rounded-xl text-lg font-medium inline-flex items-center justify-center w-full sm:w-auto">
                             More Resources
@@ -268,7 +253,7 @@
                                 <ul>
                                     <li><a href="https://drive.google.com/drive/folders/1HEdPj6teJZ1kTmk-r2uzcGFjHI3ncf54" class="btn-resource-dropdown" role="menuitem" target="_blank">Assignments</a></li>
                                     <li><a href="https://drive.google.com/drive/folders/1mHxn9k3QIyhbLMQW3lqhFvjcAtnh7va-?usp=drive_link" class="btn-resource-dropdown" role="menuitem" target="_blank">Library</a></li>
-                                    <li><"https://docs.google.com/presentation/d/1YezJGD7YP_0r9OGUBFrpsWxCNm0S3XJM/edit?usp=sharing&ouid=112969422395013339394&rtpof=true&sd=true" class="btn-resource-dropdown" role="menuitem" target="_blank">week 13 ideas</a></li>
+                                    <li><a href="https://docs.google.com/presentation/d/1YezJGD7YP_0r9OGUBFrpsWxCNm0S3XJM/edit?usp=sharing&ouid=112969422395013339394&rtpof=true&sd=true" class="btn-resource-dropdown" role="menuitem" target="_blank">week 13 ideas</a></li>
                                 </ul>
                                 <span class="block px-4 py-2 text-xs text-gray-400 font-bold uppercase mt-2">Interactive Tools</span>
                                 <ul>
@@ -283,13 +268,11 @@
             </div>
         </section>
 
-        <!-- Personal Details Section -->
         <section id="about" class="px-6 py-12 lg:py-16">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-10 text-center lg:text-left">About Me</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 bg-blue-50 p-6 rounded-xl shadow-md">
                 <div class="flex items-start">
                     <div class="flex-shrink-0 p-3 bg-blue-100 rounded-full mr-4 shadow-sm">
-                        <!-- Example Icon (using Lucide) for general info -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user icon">
                             <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
                         </svg>
@@ -307,7 +290,6 @@
 
                 <div class="flex items-start">
                     <div class="flex-shrink-0 p-3 bg-blue-100 rounded-full mr-4 shadow-sm">
-                        <!-- Example Icon for academic info -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap icon">
                             <path d="M21.42 10.922a1 1 0 0 0-.019-1.895L14.28 5.177a2.5 2.5 0 0 0-2.564 0L2.599 9.027a1 1 0 0 0-.019 1.895l8.125 3.529a2.5 2.5 0 0 0 2.564 0Z"/><path d="M12 14.5V21"/><path d="M12 14.5H2.6"/><path d="M12 14.5H21.4"/><path d="M16 16v-3a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"/>
                         </svg>
@@ -318,7 +300,6 @@
                             <li><strong>University:</strong> Donga University</li>
                             <li><strong>Major:</strong> IBM</li>
                             <li><strong>Status:</strong> Bachelor</li>
-                            <!-- Grade Display Area -->
                             <li>
                                 <strong>Current Overall Grade:</strong> 
                                 <div class="grade-overview-box-alt inline-block p-2 ml-2">
@@ -328,7 +309,6 @@
                                 </div>
                             </li>
                         </ul>
-                        <!-- New "Check Grades" Button (separated) -->
                         <div class="mt-4 text-center lg:text-left">
                             <a href="https://script.google.com/macros/s/AKfycby3Ka5_TJzmfr_iyHXdC6GQxjzEk5m1-zEGCF3A4zaN/dev" target="_blank" class="btn-secondary px-6 py-2 rounded-lg text-base font-medium">
                                 Check Grades
@@ -339,11 +319,9 @@
             </div>
         </section>
 
-        <!-- Recent Adventures Section -->
         <section id="hikes" class="px-6 py-12 lg:py-16">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-10 text-center lg:text-left">Recent Adventures</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <!-- Hike 1: IMG_1894.jpeg (Panoramic view) -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
                     <img src="IMG_1894.jpeg" alt="Hiking View over Busan" class="w-full h-64 object-cover"
                          onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0F2FE/2563EB?text=Hike+View';">
@@ -355,7 +333,7 @@
                         </p>
                         <div class="flex justify-between items-center text-sm text-gray-500">
                             <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin inline-block mr-1"><path d="M12 17.5l-4-4.5a6 6 0 1 1 8 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin inline-block mr-1"><path d="M12 17.5l-4-4.5a6 0 1 1 8 0z"/><circle cx="12" cy="10" r="3"/></svg>
                                 Busan, South Korea
                             </span>
                             <span>
@@ -365,7 +343,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Hike 2: IMG_1775.jpeg (Summit marker) -->
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
                     <img src="IMG_1894.jpg" alt="Siyak Mountain stone marker" class="w-full h-64 object-cover"
                          onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0F2FE/2563EB?text=Hike+Marker';">
@@ -376,7 +353,7 @@
                         </p>
                         <div class="flex justify-between items-center text-sm text-gray-500">
                             <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin inline-block mr-1"><path d="M12 17.5l-4-4.5a6 6 0 1 1 8 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin inline-block mr-1"><path d="M12 17.5l-4-4.5a6 0 1 1 8 0z"/><circle cx="12" cy="10" r="3"/></svg>
                                 Siyak Mountain, Korea
                             </span>
                             <span>
@@ -389,7 +366,6 @@
             </div>
         </section>
 
-        <!-- Connect Section -->
         <section id="connect" class="px-6 py-12 lg:py-16">
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-10 text-center lg:text-left">Connect With Me</h2>
             <div class="bg-blue-50 p-6 rounded-xl shadow-md">
@@ -401,14 +377,12 @@
             </div>
         </section>
 
-        <!-- Footer Section -->
         <footer class="text-center py-8 text-gray-500 text-sm mt-12 z-10 relative">
             <p>&copy; 2025 ALAM AL KAHAF. All rights reserved.</p>
         </footer>
 
     </div>
 
-    <!-- Password Modal Structure -->
     <div id="passwordModal" class="modal-overlay">
         <div class="modal-content">
             <button class="modal-close-button" onclick="closePasswordModal()">
@@ -422,7 +396,6 @@
         </div>
     </div>
 
-    <!-- JavaScript for Lucide Icons, Grade Fetching, Button Actions, and Modals -->
     <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js"></script>
     
     <script>
