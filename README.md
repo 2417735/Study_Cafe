@@ -268,6 +268,7 @@
                                 <ul>
                                     <li><a href="https://drive.google.com/drive/folders/1HEdPj6teJZ1kTmk-r2uzcGFjHI3ncf54" class="btn-resource-dropdown" role="menuitem" target="_blank">Assignments</a></li>
                                     <li><a href="https://drive.google.com/drive/folders/1mHxn9k3QIyhbLMQW3lqhFvjcAtnh7va-?usp=drive_link" class="btn-resource-dropdown" role="menuitem" target="_blank">Library</a></li>
+                                    <li><"https://docs.google.com/presentation/d/1YezJGD7YP_0r9OGUBFrpsWxCNm0S3XJM/edit?usp=sharing&ouid=112969422395013339394&rtpof=true&sd=true" class="btn-resource-dropdown" role="menuitem" target="_blank">week 13 ideas</a></li>
                                 </ul>
                                 <span class="block px-4 py-2 text-xs text-gray-400 font-bold uppercase mt-2">Interactive Tools</span>
                                 <ul>
