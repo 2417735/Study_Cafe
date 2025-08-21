@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -224,9 +225,8 @@
 
         <section class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-start px-6 pb-12 lg:pb-20 z-10 relative">
             <div class="flex-shrink-0 mb-8 lg:mb-0 lg:mr-16">
-                <img src="IMG_0503.jpg" alt="ALAM AL KAHAF Profile Picture" 
-                     class="w-48 h-48 rounded-full object-cover shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-300"
-                     onerror="this.onerror=null;this.src='https://placehold.co/192x192/E0F2FE/2563EB?text=Profile';">
+                <img src="https://placehold.co/192x192/E0F2FE/2563EB?text=Profile" alt="ALAM AL KAHAF Profile Picture" 
+                    class="w-48 h-48 rounded-full object-cover shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-300">
             </div>
 
             <div class="text-center lg:text-left">
@@ -304,15 +304,15 @@
                                 <strong>Current Overall Grade:</strong> 
                                 <div class="grade-overview-box-alt inline-block p-2 ml-2">
                                     <span id="gradeValue">Loading...</span>
-                                    <span id="gradeLoader" class="grade-loader-alt" style="display: none;"></span>
+                                    <span id="gradeLoader" class="grade-loader-alt"></span>
                                     <span id="gradeStatusOverlay" class="grade-error-text-alt" style="display: none;"></span>
                                 </div>
                             </li>
                         </ul>
                         <div class="mt-4 text-center lg:text-left">
-                            <a href="https://script.google.com/macros/s/AKfycby3Ka5_TJzmfr_iyHXdC6GQxjzEk5m1-zEGCF3A4zaN/dev" target="_blank" class="btn-secondary px-6 py-2 rounded-lg text-base font-medium">
+                            <button onclick="fetchGrade()" class="btn-secondary px-6 py-2 rounded-lg text-base font-medium">
                                 Check Grades
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -323,8 +323,7 @@
             <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-10 text-center lg:text-left">Recent Adventures</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
-                    <img src="IMG_1894.jpeg" alt="Hiking View over Busan" class="w-full h-64 object-cover"
-                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0F2FE/2563EB?text=Hike+View';">
+                    <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Hike+View" alt="Hiking View over Busan" class="w-full h-64 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-800 mb-2">Siyak Mountain Summit</h3>
                         <p class="text-gray-600 mb-4">
@@ -333,7 +332,7 @@
                         </p>
                         <div class="flex justify-between items-center text-sm text-gray-500">
                             <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin inline-block mr-1"><path d="M12 17.5l-4-4.5a6 0 1 1 8 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin inline-block mr-1"><path d="M12 17.5l-4-4.5a6 6 0 1 1 8 0z"/><circle cx="12" cy="10" r="3"/></svg>
                                 Busan, South Korea
                             </span>
                             <span>
@@ -344,8 +343,7 @@
                     </div>
                 </div>
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02]">
-                    <img src="IMG_1894.jpg" alt="Siyak Mountain stone marker" class="w-full h-64 object-cover"
-                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0F2FE/2563EB?text=Hike+Marker';">
+                    <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Hike+Marker" alt="Siyak Mountain stone marker" class="w-full h-64 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-semibold text-gray-800 mb-2">Siyak Mountain Summit Marker</h3>
                         <p class="text-gray-600 mb-4">
@@ -353,7 +351,7 @@
                         </p>
                         <div class="flex justify-between items-center text-sm text-gray-500">
                             <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin inline-block mr-1"><path d="M12 17.5l-4-4.5a6 0 1 1 8 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin inline-block mr-1"><path d="M12 17.5l-4-4.5a6 6 0 1 1 8 0z"/><circle cx="12" cy="10" r="3"/></svg>
                                 Siyak Mountain, Korea
                             </span>
                             <span>
@@ -402,14 +400,11 @@
         // Define your correct password here
         const CORRECT_PASSWORD = "YOUR_SECRET_PASSWORD"; // <--- IMPORTANT: CHANGE THIS TO YOUR ACTUAL PASSWORD
 
-        // This URL is no longer used for fetching grades on this page as the button now directly links to it.
+        // This URL is used to fetch grades from the Google Apps Script.
         const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby3Ka5_TJzmfr_iyHXdC6GQxjzEk5m1-zEGCF3A4zaN/dev"; 
 
         /**
-         * The fetchGrade function is no longer called by the "Check Grades" button,
-         * as the button now directly links to the Google Apps Script URL.
-         * This function remains here in case other parts of the site need it,
-         * but its initial call on DOMContentLoaded has been removed.
+         * Fetches and displays the overall grade from a Google Apps Script.
          */
         async function fetchGrade() {
             const gradeLoader = document.getElementById('gradeLoader');
@@ -548,7 +543,7 @@
             }
         }
 
-        // Event listeners for dropdown
+        // Event listeners for dropdown and initial grade fetch
         document.addEventListener('DOMContentLoaded', () => {
             if (dropdownButton) {
                 dropdownButton.addEventListener('click', toggleDropdown);
@@ -557,9 +552,9 @@
 
             // Initialize Lucide icons
             lucide.createIcons();
-            // The fetchGrade() call on load is now commented out/removed because the "Check Grades" button
-            // now directly links to the Google Apps Script URL.
-            // fetchGrade();
+            
+            // Re-enabling the grade fetch on page load for a better user experience
+            fetchGrade();
         });
     </script>
 </body>
