@@ -331,7 +331,7 @@
                 <h2 class="text-2xl section-title">Recent Adventures</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="info-card">
-                        <img src=" /" alt="Siyak Mountain Summit" class="rounded-lg mb-4 w-full h-auto">
+                        <img src="IMG_1775.jpeg" alt="Siyak Mountain Summit" class="rounded-lg mb-4 w-full h-auto">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Siyak Mountain Summit</h3>
                         <p class="text-gray-600 text-sm">
                             A breathtaking hike up Siyak Mountain (510m) offering panoramic views of Busan, South Korea.
