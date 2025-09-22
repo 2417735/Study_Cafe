@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+" Hi, WElcome. 
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -331,7 +331,7 @@
                 <h2 class="text-2xl section-title">Recent Adventures</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div class="info-card">
-                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Siyak+Mountain" alt="Siyak Mountain Summit" class="rounded-lg mb-4 w-full h-auto">
+                        <img src=" /" alt="Siyak Mountain Summit" class="rounded-lg mb-4 w-full h-auto">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Siyak Mountain Summit</h3>
                         <p class="text-gray-600 text-sm">
                             A breathtaking hike up Siyak Mountain (510m) offering panoramic views of Busan, South Korea.
@@ -339,7 +339,7 @@
                         <p class="text-gray-400 text-xs mt-2">May 2025</p>
                     </div>
                     <div class="info-card">
-                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Donga+Campus" alt="Donga University" class="rounded-lg mb-4 w-full h-auto">
+                        <img src="/" alt="Donga University" class="rounded-lg mb-4 w-full h-auto">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Donga University</h3>
                         <p class="text-gray-600 text-sm">
                             Exploring the beautiful campus of Donga University, a mix of modern and traditional Korean architecture.
@@ -359,7 +359,7 @@
     <div id="instagramModal" class="modal-overlay">
         <div class="modal-content !p-6">
             <button class="modal-close-button" onclick="closeInstagramModal()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                <svg xmlns="//////" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
             <h3 class="text-xl font-semibold text-gray-800 mb-4">Scan to connect on Instagram</h3>
             <img src="https://i.ibb.co/6P01x6N/WhatsApp-Image-2025-09-22-at-2-05-23-PM.jpg" alt="Instagram QR Code" class="w-full max-w-xs mx-auto rounded-lg shadow-lg">
