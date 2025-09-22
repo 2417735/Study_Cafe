@@ -339,7 +339,7 @@
                         <p class="text-gray-400 text-xs mt-2">May 2025</p>
                     </div>
                     <div class="info-card">
-                        <img src="/" alt="Donga University" class="rounded-lg mb-4 w-full h-auto">
+                        <img src="caption.jpg" alt="Donga University" class="rounded-lg mb-4 w-full h-auto">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Donga University</h3>
                         <p class="text-gray-600 text-sm">
                             Exploring the beautiful campus of Donga University, a mix of modern and traditional Korean architecture.
