@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +7,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f7f9fc;
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* Align to top for scrolling */
             justify-content: center;
             padding: 1rem;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         .main-container {
@@ -98,6 +98,7 @@
             border-radius: 12px;
             padding: 1.5rem;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            margin-bottom: 1.5rem;
         }
 
         .info-card:hover {
@@ -156,7 +157,8 @@
             padding: 0.75rem 1.5rem;
             border-radius: 9999px;
             transition: background-color 0.3s, transform 0.3s;
-            margin-top: auto; /* Push to the bottom */
+            margin-top: auto;
+            text-align: center;
         }
 
         .project-link-button:hover {
@@ -164,7 +166,6 @@
             transform: scale(1.05);
         }
 
-        /* Modal specific styles */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -251,7 +252,7 @@
             </div>
         </header>
 
-        <nav class="bg-gray-50 py-4 border-b border-gray-200">
+        <nav class="bg-gray-50 py-4 border-b border-gray-200 sticky top-0 z-50">
             <div class="container mx-auto flex justify-center space-x-8">
                 <a href="#about" class="nav-link text-gray-600 font-medium">About Me</a>
                 <a href="#academic-projects" class="nav-link text-gray-600 font-medium">Academic Projects</a>
@@ -262,95 +263,91 @@
             </div>
         </nav>
 
-        <main class="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 md:p-8">
+        <main class="p-6 md:p-8">
 
-            <div class="lg:col-span-2">
-                <div id="about" class="section">
-                    <h2 class="text-2xl section-title">About Me</h2>
+            <section id="about" class="section">
+                <h2 class="text-2xl section-title">About Me</h2>
+                <div class="info-card">
+                    <h3 class="info-card-title text-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Personal Information
+                    </h3>
+                    <ul class="info-list">
+                        <li><strong>Name:</strong> ALAM AL KAHAF</li>
+                        <li><strong>Phone:</strong> 010-9672-4615</li>
+                        <li><strong>Email:</strong> 2417735@donga.ac.kr</li>
+                        <li><strong>Location:</strong> Busan, South Korea</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="academic-projects" class="section">
+                <h2 class="text-2xl section-title">Academic Projects</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div class="info-card">
                         <h3 class="info-card-title text-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                            Personal Information
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            E-commerce Platform
                         </h3>
                         <ul class="info-list">
-                            <li><strong>Name:</strong> ALAM AL KAHAF</li>
-                            <li><strong>Phone:</strong> 010-9672-4615</li>
-                            <li><strong>Email:</strong> 2417735@donga.ac.kr</li>
-                            <li><strong>Location:</strong> Busan, South Korea</li>
+                            <li><strong>Course:</strong> Web Development Fundamentals</li>
+                            <li><strong>Description:</strong> A full-stack e-commerce site with user authentication, product listings, and a shopping cart.</li>
+                            <li><strong>Technologies:</strong> React, Node.js, Express, MongoDB</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title text-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                            Data Analysis Dashboard
+                        </h3>
+                        <ul class="info-list">
+                            <li><strong>Course:</strong> Data Science in Business</li>
+                            <li><strong>Description:</strong> An interactive dashboard for visualizing sales and customer data to identify key business trends.</li>
+                            <li><strong>Technologies:</strong> Python, Pandas, Matplotlib, Dash</li>
                         </ul>
                     </div>
                 </div>
-                
-                <div id="academic-projects" class="section">
-                    <h2 class="text-2xl section-title">Academic Projects</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="info-card">
-                            <h3 class="info-card-title text-lg">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                                E-commerce Platform
-                            </h3>
-                            <ul class="info-list">
-                                <li><strong>Course:</strong> Web Development Fundamentals</li>
-                                <li><strong>Description:</strong> A full-stack e-commerce site with user authentication, product listings, and a shopping cart.</li>
-                                <li><strong>Technologies:</strong> React, Node.js, Express, MongoDB</li>
-                            </ul>
-                        </div>
-                        <div class="info-card">
-                            <h3 class="info-card-title text-lg">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                                Data Analysis Dashboard
-                            </h3>
-                            <ul class="info-list">
-                                <li><strong>Course:</strong> Data Science in Business</li>
-                                <li><strong>Description:</strong> An interactive dashboard for visualizing sales and customer data to identify key business trends.</li>
-                                <li><strong>Technologies:</strong> Python, Pandas, Matplotlib, Dash</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            </section>
 
-                <div id="projects" class="section mt-8">
-                    <h2 class="text-2xl section-title">My Projects</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="project-card">
-                            <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Foreign" alt="Foreign" class="project-card-image">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Foreign Project</h3>
-                            <p class="text-gray-600 text-sm mb-4">A web-based project for managing foreign student resources and information.</p>
-                            <a href="https://2417735.github.io/Foreign/" target="_blank" class="project-link-button text-center">View Project</a>
-                        </div>
-                        <div class="project-card">
-                            <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Crypterror" alt="Crypterror" class="project-card-image">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Crypterror</h3>
-                            <p class="text-gray-600 text-sm mb-4">An application focused on cybersecurity concepts and cryptographic principles.</p>
-                            <a href="https://2417735.github.io/crypterror/" target="_blank" class="project-link-button text-center">View Project</a>
-                        </div>
+            <section id="projects" class="section">
+                <h2 class="text-2xl section-title">My Projects</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="project-card">
+                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Foreign" alt="Foreign" class="project-card-image">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Foreign Project</h3>
+                        <p class="text-gray-600 text-sm mb-4">A web-based project for managing foreign student resources and information.</p>
+                        <a href="https://2417735.github.io/Foreign/" target="_blank" class="project-link-button text-center">View Project</a>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Crypterror" alt="Crypterror" class="project-card-image">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Crypterror</h3>
+                        <p class="text-gray-600 text-sm mb-4">An application focused on cybersecurity concepts and cryptographic principles.</p>
+                        <a href="https://2417735.github.io/crypterror/" target="_blank" class="project-link-button text-center">View Project</a>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="lg:col-span-1">
-                <div id="hikes" class="section">
-                    <h2 class="text-2xl section-title">Recent Adventures</h2>
-                    <div class="grid grid-cols-1 gap-6">
-                        <div class="info-card">
-                            <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Siyak+Mountain" alt="Siyak Mountain Summit" class="rounded-lg mb-4 w-full h-auto">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Siyak Mountain Summit</h3>
-                            <p class="text-gray-600 text-sm">
-                                A breathtaking hike up Siyak Mountain (510m) offering panoramic views of Busan, South Korea.
-                            </p>
-                            <p class="text-gray-400 text-xs mt-2">May 2025</p>
-                        </div>
-                        <div class="info-card">
-                            <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Donga+Campus" alt="Donga University" class="rounded-lg mb-4 w-full h-auto">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-2">Donga University</h3>
-                            <p class="text-gray-600 text-sm">
-                                Exploring the beautiful campus of Donga University, a mix of modern and traditional Korean architecture.
-                            </p>
-                            <p class="text-gray-400 text-xs mt-2">March 2025</p>
-                        </div>
+            <section id="adventures" class="section">
+                <h2 class="text-2xl section-title">Recent Adventures</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="info-card">
+                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Siyak+Mountain" alt="Siyak Mountain Summit" class="rounded-lg mb-4 w-full h-auto">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Siyak Mountain Summit</h3>
+                        <p class="text-gray-600 text-sm">
+                            A breathtaking hike up Siyak Mountain (510m) offering panoramic views of Busan, South Korea.
+                        </p>
+                        <p class="text-gray-400 text-xs mt-2">May 2025</p>
+                    </div>
+                    <div class="info-card">
+                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Donga+Campus" alt="Donga University" class="rounded-lg mb-4 w-full h-auto">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Donga University</h3>
+                        <p class="text-gray-600 text-sm">
+                            Exploring the beautiful campus of Donga University, a mix of modern and traditional Korean architecture.
+                        </p>
+                        <p class="text-gray-400 text-xs mt-2">March 2025</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
         </main>
 
