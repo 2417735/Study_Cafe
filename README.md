@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALAM AL KAHAF - Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -193,6 +194,13 @@
             transform: translateY(-1px);
             box-shadow: 0 6px 20px 0 rgba(0, 118, 255, 0.49);
         }
+        .social-link {
+            transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+        }
+        .social-link:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -215,6 +223,22 @@
             </nav>
 
             <div class="flex items-center space-x-4">
+                <a href="https://www.youtube.com/@kahafalam3450" target="_blank" class="text-gray-600 hover:text-red-600 transition-colors duration-200 social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-youtube">
+                        <path d="M19.83 5.37a2.5 2.5 0 0 0-1.78-1.78C16.3 3.1 12 3.1 12 3.1s-4.3 0-6.05.5a2.5 2.5 0 0 0-1.78 1.78C3.1 7.1 3.1 12 3.1 12s0 4.9.52 6.63a2.5 2.5 0 0 0 1.78 1.78c1.75.52 6.05.52 6.05.52s4.3 0 6.05-.52a2.5 2.5 0 0 0 1.78-1.78c.52-1.73.52-6.63.52-6.63s0-4.9-.52-6.63z"/><path d="m10 15 5-3-5-3z"/>
+                    </svg>
+                </a>
+                <button onclick="showInstagramModal()" class="text-gray-600 hover:text-pink-500 transition-colors duration-200 social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-instagram">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                    </svg>
+                </button>
+                <a href="https://github.com/2417735" target="_blank" class="text-gray-600 hover:text-gray-900 transition-colors duration-200 social-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-github">
+                        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3.2-.3 6.5-1.6 6.5-7.5 0-1.7-.6-3.1-1.6-4.2a5 5 0 0 0-.2-4.1s-1.3-.4-4.2 1.6C12.9 2 11.6 2 10 2s-2.9 0-4.2 1.6C2.8 3.5 1.5 3.9 1.5 3.9a5 5 0 0 0-.2 4.1c-1 1.1-1.6 2.5-1.6 4.2 0 5.9 3.3 7.2 6.5 7.5a4.8 4.8 0 0 0-1 3.2v4c-6.8 0-12-5.4-12-12C0 5.4 5.2 0 12 0c6.8 0 12 5.4 12 12 0 6.6-5.2 12-12 12z"/>
+                    </svg>
+                </a>
+
                 <button class="lg:hidden text-gray-600 focus:outline-none p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
                         <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
@@ -240,6 +264,8 @@
                     <a href="https://2417735.github.io/Foreign/" class="btn-primary text-white px-8 py-3 rounded-xl text-lg font-medium" target="_blank">Foreign</a>
                     <a href="https://2417735.github.io/crypterror/" class="btn-secondary px-8 py-3 rounded-xl text-lg font-medium" target="_blank">Crypterror</a>
                     
+                    <a href="your_cv_link.pdf" download class="btn-primary text-white px-8 py-3 rounded-xl text-lg font-medium">Download CV</a>
+
                     <div class="relative inline-block text-left">
                         <button id="dropdownButton" class="btn-secondary px-8 py-3 rounded-xl text-lg font-medium inline-flex items-center justify-center w-full sm:w-auto">
                             More Resources
@@ -394,6 +420,17 @@
         </div>
     </div>
 
+    <div id="instagramModal" class="modal-overlay">
+        <div class="modal-content !p-6">
+            <button class="modal-close-button" onclick="closeInstagramModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Scan to connect on Instagram</h3>
+            <img src="https://i.ibb.co/6P01x6N/WhatsApp-Image-2025-09-22-at-2-05-23-PM.jpg" alt="Instagram QR Code" class="w-full max-w-xs mx-auto rounded-lg shadow-lg">
+            <p class="text-lg font-medium text-gray-700 mt-4">@BEING_CHOTO</p>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js"></script>
     
     <script>
@@ -462,7 +499,7 @@
         }
 
         /**
-         * Shows the password input modal.
+         * Shows the Hif Lumen password input modal.
          */
         function showPasswordModal() {
             const modal = document.getElementById('passwordModal');
@@ -482,7 +519,7 @@
         }
 
         /**
-         * Closes the password input modal.
+         * Closes the Hif Lumen password input modal.
          */
         function closePasswordModal() {
             const modal = document.getElementById('passwordModal');
@@ -524,6 +561,26 @@
          */
         function openAITutor() {
             window.open("ai chat.html", "_blank"); // Ensure 'ai chat.html' is in the correct path
+        }
+
+        /**
+         * Shows the Instagram QR code modal.
+         */
+        function showInstagramModal() {
+            const modal = document.getElementById('instagramModal');
+            if (modal) {
+                modal.classList.add('open');
+            }
+        }
+
+        /**
+         * Closes the Instagram QR code modal.
+         */
+        function closeInstagramModal() {
+            const modal = document.getElementById('instagramModal');
+            if (modal) {
+                modal.classList.remove('open');
+            }
         }
 
         // Dropdown logic
