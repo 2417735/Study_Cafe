@@ -231,7 +231,7 @@
             <div class="header-content">
                 <img src="IMG_1894.jpeg" alt="ALAM AL KAHAF Profile Picture" class="profile-picture">
                 <h1 class="text-3xl font-bold mt-2">ALAM AL KAHAF</h1>
-                <p class="text-sm font-medium mt-1 opacity-90">Student & Developer</p>
+                <p class="text-sm font-medium mt-1 opacity-90">Student & Analyst </p>
                 <div class="social-icons flex space-x-4 mt-4">
                     <a href="https://www.youtube.com/@kahafalam3450" target="_blank" title="YouTube">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-youtube">
@@ -239,7 +239,7 @@
                         </svg>
                     </a>
                     <button onclick="showInstagramModal()" class="flex items-center justify-center p-0" title="Instagram">
-                        <img="WhatsApp Image 2025-09-22 at 2.05.23 PM.jpeg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-instagram">
+                        <img="insta" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-instagram">
                             <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
                         </svg>
                     </button>
@@ -258,8 +258,8 @@
                 <a href="#academic-projects" class="nav-link text-gray-600 font-medium">Academic Projects</a>
                 <a href="#projects" class="nav-link text-gray-600 font-medium">My Projects</a>
                 <a href="https://docs.google.com/document/d/1xe9krDjvvUrDFGY1bn4iDg_NHSHtk3PP5S_SjNl0-rQ/edit?usp=sharing" target="_blank" class="nav-link text-gray-600 font-medium">README</a>
-                <a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank" class="nav-link text-gray-600 font-medium">Google Drive</a>
-                <a href="your_cv_link.pdf" download class="nav-link text-gray-600 font-medium">Download CV</a>
+                <a href="https://drive.google.com/drive/folders/16IEAmmFaVHOD_y1dpCjGZiLzdloiM7FL?usp=drive_link" target="_blank" class="nav-link text-gray-600 font-medium">Google Drive</a>
+                <a href="yourcv.pdf" download class="nav-link text-gray-600 font-medium">Download CV</a>
             </div>
         </nav>
 
