@@ -421,11 +421,13 @@
     <div id="instagramModal" class="modal-overlay">
         <div class="modal-content !p-6">
             <button class="modal-close-button" onclick="closeInstagramModal()">
-                <img src="WhatsApp Image 2025-09-22 at 2.05.23 PM.jpeg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
-            <h3 class="text-xl font-semibold text-gray-800 mb-4">Scan to connect on Instagram</h3>
-            <img src="https://i.ibb.co/6P01x6N/WhatsApp-Image-2025-09-22-at-2-05-23-PM.jpg" alt="Instagram QR Code" class="w-full max-w-xs mx-auto rounded-lg shadow-lg">
-            <p class="text-lg font-medium text-gray-700 mt-4">@BEING_CHOTO</p>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Connect on Instagram</h3>
+            <a href="https://www.instagram.com/being_choto?igsh=MWZoMnJrd3gzbHlvOA%3D%3D&utm_source=qr" target="_blank" class="button-option">
+                Visit @BEING_CHOTO
+            </a>
+            <p class="text-sm text-gray-600 mt-4">Opens in a new tab.</p>
         </div>
     </div>
 
@@ -461,7 +463,7 @@
             }
         }
         
-        // README Modal Functions (New)
+        // README Modal Functions
         function showReadMeModal() {
             const modal = document.getElementById('readMeModal');
             if (modal) {
