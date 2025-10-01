@@ -229,7 +229,7 @@
 
         <header class="bg-gradient-header flex flex-col items-center">
             <div class="header-content">
-                <img src="IMG_1894.jpeg" alt="ALAM AL KAHAF Profile Picture" class="profile-picture">
+                <img src="unnamed.png" alt="ALAM AL KAHAF Profile Picture" class="profile-picture">
                 <h1 class="text-3xl font-bold mt-2">ALAM AL KAHAF</h1>
                 <p class="text-sm font-medium mt-1 opacity-90">Student & Analyst </p>
                 <div class="social-icons flex space-x-4 mt-4">
