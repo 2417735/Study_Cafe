@@ -1,9 +1,8 @@
-" Hi, WElcome. 
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALAM AL KAHAF</title>
+    <title>ALAM AL KAHAF - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,7 +12,7 @@
             background-color: #f7f9fc;
             min-height: 100vh;
             display: flex;
-            align-items: flex-start; /* Align to top for scrolling */
+            align-items: flex-start;
             justify-content: center;
             padding: 1rem;
             position: relative;
@@ -48,6 +47,7 @@
             text-align: center;
         }
 
+        /* 1. Profile picture size fix: Added object-fit: cover for perfect display */
         .profile-picture {
             width: 150px;
             height: 150px;
@@ -56,6 +56,8 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             margin-bottom: 1rem;
             transition: transform 0.3s ease-in-out;
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            object-position: center; /* Centers the image */
         }
 
         .profile-picture:hover {
@@ -65,22 +67,43 @@
         .social-icons a, .social-icons button {
             color: #dbeafe;
             transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-            margin: 0 0.5rem;
+            margin: 0 0.75rem; /* Increased margin for better spacing */
+            padding: 0.5rem 0.75rem; /* Added padding for a clickable area */
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            font-weight: 500;
+        }
+        
+        /* New style for social links */
+        .social-icons a {
+            text-decoration: none;
         }
 
         .social-icons a:hover, .social-icons button:hover {
             color: white;
+            background-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-3px);
         }
 
         .nav-link {
-            transition: color 0.3s ease-in-out;
+            transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid transparent;
         }
 
         .nav-link:hover {
             color: #1e40af;
+            border-bottom-color: #3b82f6;
         }
 
+        /* 5. Mobile view fix: Use flex-wrap for nav items on smaller screens */
+        .main-nav {
+             display: flex;
+             justify-content: center;
+             flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+             gap: 0.75rem 1.5rem; /* Space between items when wrapped */
+        }
+        
         .section {
             padding: 2rem 1.5rem;
         }
@@ -99,6 +122,7 @@
             padding: 1.5rem;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             margin-bottom: 1.5rem;
+            height: 100%; /* Ensures cards in the grid have the same height */
         }
 
         .info-card:hover {
@@ -166,6 +190,7 @@
             transform: scale(1.05);
         }
 
+        /* Modal Styles */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -221,6 +246,40 @@
         .modal-close-button:hover {
             color: #1F2937;
         }
+
+        /* 5. Mobile view fix: Responsive Grid adjustments */
+        @media (max-width: 640px) {
+            .grid-cols-1-sm-2-lg-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (min-width: 640px) and (max-width: 1024px) {
+            .grid-cols-1-sm-2-lg-3 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+        @media (min-width: 1024px) {
+            .grid-cols-1-sm-2-lg-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        
+        .button-option {
+            display: block;
+            background-color: #4f46e5;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .button-option:hover {
+            background-color: #4338ca;
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -232,32 +291,20 @@
                 <img src="unnamed.png" alt="ALAM AL KAHAF Profile Picture" class="profile-picture">
                 <h1 class="text-3xl font-bold mt-2">ALAM AL KAHAF</h1>
                 <p class="text-sm font-medium mt-1 opacity-90">Student & Analyst </p>
-                <div class="social-icons flex space-x-4 mt-4">
-                    <a href="https://www.youtube.com/@kahafalam3450" target="_blank" title="YouTube">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-youtube">
-                            <path d="M19.83 5.37a2.5 2.5 0 0 0-1.78-1.78C16.3 3.1 12 3.1 12 3.1s-4.3 0-6.05.5a2.5 2.5 0 0 0-1.78 1.78C3.1 7.1 3.1 12 3.1 12s0 4.9.52 6.63a2.5 2.5 0 0 0 1.78 1.78c1.75.52 6.05.52 6.05.52s4.3 0 6.05-.52a2.5 2.5 0 0 0 1.78-1.78c.52-1.73.52-6.63.52-6.63s0-4.9-.52-6.63z"/><path d="m10 15 5-3-5-3z"/>
-                        </svg>
-                    </a>
-                    <button onclick="showInstagramModal()" class="flex items-center justify-center p-0" title="Instagram">
-                        <img="insta" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-instagram">
-                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-                        </svg>
-                    </button>
-                    <a href="https://github.com/2417735" target="_blank" title="GitHub">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-github">
-                            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3.2-.3 6.5-1.6 6.5-7.5 0-1.7-.6-3.1-1.6-4.2a5 5 0 0 0-.2-4.1s-1.3-.4-4.2 1.6C12.9 2 11.6 2 10 2s-2.9 0-4.2 1.6C2.8 3.5 1.5 3.9 1.5 3.9a5 5 0 0 0-.2 4.1c-1 1.1-1.6 2.5-1.6 4.2 0 5.9 3.3 7.2 6.5 7.5a4.8 4.8 0 0 0-1 3.2v4c-6.8 0-12-5.4-12-12C0 5.4 5.2 0 12 0c6.8 0 12 5.4 12 12 0 6.6-5.2 12-12 12z"/>
-                        </svg>
-                    </a>
+                <div class="social-icons flex mt-4">
+                    <a href="https://www.youtube.com/@kahafalam3450" target="_blank" title="YouTube Link">YouTube</a>
+                    <button onclick="showInstagramModal()" class="flex items-center justify-center p-0" title="Instagram Profile">Instagram</button>
+                    <a href="https://github.com/2417735" target="_blank" title="GitHub Profile">GitHub</a>
                 </div>
             </div>
         </header>
 
         <nav class="bg-gray-50 py-4 border-b border-gray-200 sticky top-0 z-50">
-            <div class="container mx-auto flex justify-center space-x-8">
+            <div class="container mx-auto main-nav px-4 md:px-0">
                 <a href="#about" class="nav-link text-gray-600 font-medium">About Me</a>
                 <a href="#academic-projects" class="nav-link text-gray-600 font-medium">Academic Projects</a>
                 <a href="#projects" class="nav-link text-gray-600 font-medium">My Projects</a>
-                <a href="https://docs.google.com/document/d/1xe9krDjvvUrDFGY1bn4iDg_NHSHtk3PP5S_SjNl0-rQ/edit?usp=sharing" target="_blank" class="nav-link text-gray-600 font-medium">README</a>
+                <button onclick="showReadMeModal()" class="nav-link text-gray-600 font-medium bg-transparent border-none cursor-pointer">README</button>
                 <a href="https://drive.google.com/drive/folders/16IEAmmFaVHOD_y1dpCjGZiLzdloiM7FL?usp=drive_link" target="_blank" class="nav-link text-gray-600 font-medium">Google Drive</a>
                 <a href="yourcv.pdf" download class="nav-link text-gray-600 font-medium">Download CV</a>
             </div>
@@ -280,10 +327,12 @@
                     </ul>
                 </div>
             </section>
+            
+            ---
 
             <section id="academic-projects" class="section">
                 <h2 class="text-2xl section-title">Academic Projects</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1-sm-2-lg-3 gap-6">
                     <div class="info-card">
                         <h3 class="info-card-title text-lg">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
@@ -308,28 +357,41 @@
                     </div>
                 </div>
             </section>
+            
+            ---
 
             <section id="projects" class="section">
                 <h2 class="text-2xl section-title">My Projects</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1-sm-2-lg-3 gap-6">
                     <div class="project-card">
-                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Foreign" alt="Foreign" class="project-card-image">
+                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Foreign" alt="Foreign Project" class="project-card-image">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Foreign Project</h3>
                         <p class="text-gray-600 text-sm mb-4">A web-based project for managing foreign student resources and information.</p>
                         <a href="https://2417735.github.io/Foreign/" target="_blank" class="project-link-button text-center">View Project</a>
                     </div>
                     <div class="project-card">
-                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Crypterror" alt="Crypterror" class="project-card-image">
+                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Crypterror" alt="Crypterror Project" class="project-card-image">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Crypterror</h3>
                         <p class="text-gray-600 text-sm mb-4">An application focused on cybersecurity concepts and cryptographic principles.</p>
                         <a href="https://2417735.github.io/crypterror/" target="_blank" class="project-link-button text-center">View Project</a>
                     </div>
                 </div>
             </section>
+            
+            ---
 
             <section id="adventures" class="section">
                 <h2 class="text-2xl section-title">Recent Adventures</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1-sm-2-lg-3 gap-6">
+                    <div class="info-card">
+                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Jeju+Trip" alt="Jeju Island Trip" class="rounded-lg mb-4 w-full h-auto">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">My Jeju Trip 🌴</h3>
+                        <p class="text-gray-600 text-sm">
+                            An unforgettable adventure exploring the volcanic landscapes, stunning beaches, and unique culture of Jeju Island.
+                        </p>
+                        <p class="text-gray-400 text-xs mt-2">October 2025 (Placeholder)</p>
+                    </div>
+                    
                     <div class="info-card">
                         <img src="IMG_1775.jpeg" alt="Siyak Mountain Summit" class="rounded-lg mb-4 w-full h-auto">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Siyak Mountain Summit</h3>
@@ -359,7 +421,7 @@
     <div id="instagramModal" class="modal-overlay">
         <div class="modal-content !p-6">
             <button class="modal-close-button" onclick="closeInstagramModal()">
-                <svg xmlns="//////" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
             </button>
             <h3 class="text-xl font-semibold text-gray-800 mb-4">Scan to connect on Instagram</h3>
             <img src="https://i.ibb.co/6P01x6N/WhatsApp-Image-2025-09-22-at-2-05-23-PM.jpg" alt="Instagram QR Code" class="w-full max-w-xs mx-auto rounded-lg shadow-lg">
@@ -367,8 +429,24 @@
         </div>
     </div>
 
+    <div id="readMeModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="closeReadMeModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <h3 class="text-xl font-semibold text-gray-800 mb-6">Select a README Document</h3>
+            <a href="https://docs.google.com/document/d/1xe9krDjvvUrDFGY1bn4iDg_NHSHtk3PP5S_SjNl0-rQ/edit?usp=sharing" target="_blank" class="button-option">
+                Digital Literacy
+            </a>
+            <a href="https://docs.google.com/document/d/1CPx5GHMdnrahhT2PI1-otAzeyNKrGcKFs2yZfFKJJ_A/edit?tab=t.0" target="_blank" class="button-option">
+                Master Assignment
+            </a>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js"></script>
     <script>
+        // Instagram Modal Functions
         function showInstagramModal() {
             const modal = document.getElementById('instagramModal');
             if (modal) {
@@ -378,6 +456,21 @@
 
         function closeInstagramModal() {
             const modal = document.getElementById('instagramModal');
+            if (modal) {
+                modal.classList.remove('open');
+            }
+        }
+        
+        // README Modal Functions (New)
+        function showReadMeModal() {
+            const modal = document.getElementById('readMeModal');
+            if (modal) {
+                modal.classList.add('open');
+            }
+        }
+
+        function closeReadMeModal() {
+            const modal = document.getElementById('readMeModal');
             if (modal) {
                 modal.classList.remove('open');
             }
