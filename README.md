@@ -384,7 +384,7 @@
                 <h2 class="text-2xl section-title">Recent Adventures</h2>
                 <div class="grid grid-cols-1-sm-2-lg-3 gap-6">
                     <div class="info-card">
-                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Jeju+Trip" alt="Jeju Island Trip" class="rounded-lg mb-4 w-full h-auto">
+                        <img src="jeju3-17.jpeg" alt="Jeju Island Trip" class="rounded-lg mb-4 w-full h-auto">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">My Jeju Trip 🌴</h3>
                         <p class="text-gray-600 text-sm">
                             An unforgettable adventure exploring the volcanic landscapes, stunning beaches, and unique culture of Jeju Island.
