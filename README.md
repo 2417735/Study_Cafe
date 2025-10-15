@@ -1,486 +1,173 @@
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALAM AL KAHAF - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f7f9fc;
-            min-height: 100vh;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 1rem;
-            position: relative;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALAM AL KAHAF - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* BASE STYLES */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        /* CONTENT CONTAINER */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
 
-        .main-container {
-            background-color: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            width: 100%;
-            max-width: 1100px;
-            overflow: hidden;
-            position: relative;
-            z-index: 10;
-        }
+        /* SOCIAL LINK STYLING */
+        .social-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            background-color: #f7f7f7;
+            color: #333;
+            font-weight: 500;
+            transition: background-color 0.2s;
+            text-decoration: none;
+        }
 
-        .bg-gradient-header {
-            background: linear-gradient(90deg, #1d4ed8, #2563eb, #3b82f6);
-            border-radius: 20px 20px 0 0;
-            padding: 2rem;
-            color: white;
-            position: relative;
-            z-index: 2;
-        }
+        .social-link:hover {
+            background-color: #ebebeb;
+        }
 
-        .header-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
+        .social-icon {
+            margin-right: 0.75rem;
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* RESPONSIVE PROFILE IMAGE SIZE */
+        .profile-circle {
+            width: 280px; 
+            height: 280px; 
+            margin-bottom: 1.5rem; 
+        }
 
-        /* 1. Profile picture size fix: Added object-fit: cover for perfect display */
-        .profile-picture {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid white;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease-in-out;
-            object-fit: cover; /* Ensures the image covers the area without distortion */
-            object-position: center; /* Centers the image */
-        }
+        @media (min-width: 768px) {
+            .profile-circle {
+                width: 384px; 
+                height: 384px; 
+                margin-bottom: 0;
+            }
+        }
 
-        .profile-picture:hover {
-            transform: scale(1.05);
-        }
-
-        .social-icons a, .social-icons button {
-            color: #dbeafe;
-            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-            margin: 0 0.75rem; /* Increased margin for better spacing */
-            padding: 0.5rem 0.75rem; /* Added padding for a clickable area */
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.1);
-            font-weight: 500;
-        }
-        
-        /* New style for social links */
-        .social-icons a {
-            text-decoration: none;
-        }
-
-        .social-icons a:hover, .social-icons button:hover {
-            color: white;
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .nav-link {
-            transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
-            padding-bottom: 0.25rem;
-            border-bottom: 2px solid transparent;
-        }
-
-        .nav-link:hover {
-            color: #1e40af;
-            border-bottom-color: #3b82f6;
-        }
-
-        /* 5. Mobile view fix: Use flex-wrap for nav items on smaller screens */
-        .main-nav {
-             display: flex;
-             justify-content: center;
-             flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-             gap: 0.75rem 1.5rem; /* Space between items when wrapped */
-        }
-        
-        .section {
-            padding: 2rem 1.5rem;
-        }
-
-        .section-title {
-            color: #1e293b;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .info-card {
-            background-color: #f0f4f8;
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            margin-bottom: 1.5rem;
-            height: 100%; /* Ensures cards in the grid have the same height */
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .info-card-title {
-            color: #1e293b;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .info-card-title svg {
-            margin-right: 0.75rem;
-            color: #4f46e5;
-        }
-
-        .info-list li {
-            font-family: 'Inter', sans-serif;
-            color: #4b5563;
-            margin-bottom: 0.5rem;
-        }
-        
-        .project-card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .project-card-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-        }
-
-        .project-link-button {
-            display: inline-block;
-            background-color: #2563eb;
-            color: white;
-            font-weight: 600;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            margin-top: auto;
-            text-align: center;
-        }
-
-        .project-link-button:hover {
-            background-color: #1e40af;
-            transform: scale(1.05);
-        }
-
-        /* Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        .modal-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background-color: #ffffff;
-            padding: 2.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            transform: translateY(-20px);
-            opacity: 0;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            position: relative;
-        }
-
-        .modal-overlay.open .modal-content {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .modal-close-button {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #6B7280;
-            transition: color 0.2s ease;
-        }
-
-        .modal-close-button:hover {
-            color: #1F2937;
-        }
-
-        /* 5. Mobile view fix: Responsive Grid adjustments */
-        @media (max-width: 640px) {
-            .grid-cols-1-sm-2-lg-3 {
-                grid-template-columns: 1fr;
-            }
-        }
-        @media (min-width: 640px) and (max-width: 1024px) {
-            .grid-cols-1-sm-2-lg-3 {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
-        @media (min-width: 1024px) {
-            .grid-cols-1-sm-2-lg-3 {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-        }
-        
-        .button-option {
-            display: block;
-            background-color: #4f46e5;
-            color: white;
-            font-weight: 600;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        
-        .button-option:hover {
-            background-color: #4338ca;
-            transform: scale(1.02);
-        }
-    </style>
+        /* NEW: ADVENTURE/PROJECT BOX STYLING */
+        .adventure-box {
+            border: 1px solid #e5e5e5;
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
+        .adventure-box:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-color: #d1d5db;
+        }
+    </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <div class="main-container">
+    <div class="main-content">
+        
+        <header class="mb-16">
+            <h1 class="text-3xl font-bold mb-10">Portfolio</h1>
+            <nav class="flex space-x-4 text-gray-500 font-medium overflow-x-auto whitespace-nowrap pb-1">
+                <a href="#" class="text-black border-b-2 border-black pb-1">Home</a>
+                <a href="#projects" class="hover:text-black">Projects</a>
+                <a href="#" class="hover:text-black">About</a>
+                <a href="#" class="hover:text-black">Contact</a>
+            </nav>
+        </header>
+        
+        <main class="grid lg:grid-cols-2 gap-12 items-start mb-20">
+            
+            <section class="order-2 lg:order-1">
+                <p class="text-xl md:text-2xl mb-2">Hey there! 👋</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    I'm ALAM AL KAHAF.
+                </h2>
+                <p class="text-gray-500 mb-8">
+                    2417735@donga.ac.kr
+                </p>
 
-        <header class="bg-gradient-header flex flex-col items-center">
-            <div class="header-content">
-                <img src="unnamed.png" alt="ALAM AL KAHAF Profile Picture" class="profile-picture">
-                <h1 class="text-3xl font-bold mt-2">ALAM AL KAHAF</h1>
-                <p class="text-sm font-medium mt-1 opacity-90">Student & Analyst </p>
-                <div class="social-icons flex mt-4">
-                    <a href="https://www.youtube.com/@kahafalam3450" target="_blank" title="YouTube Link">YouTube</a>
-                                        <a href="https://www.linkedin.com/in/kahaf-alam" target="_blank" title="LinkedIn Profile">LinkedIn</a>
-                    <button onclick="showInstagramModal()" class="flex items-center justify-center p-0" title="Instagram Profile">Instagram</button>
-                    <a href="https://github.com/2417735" target="_blank" title="GitHub Profile">GitHub</a>
-                </div>
-            </div>
-        </header>
+                <h3 class="text-lg md:text-xl font-bold mb-3">Student & Analyst</h3>
+                <p class="text-gray-700 leading-relaxed mb-8">
+                    I am a student at **Donga University** specializing in data analysis and full-stack development. With a passion for transforming raw data into actionable insights and building robust web applications, I am dedicated to pushing the boundaries of technology and learning.
+                </p>
 
-        <nav class="bg-gray-50 py-4 border-b border-gray-200 sticky top-0 z-50">
-            <div class="container mx-auto main-nav px-4 md:px-0">
-                <a href="#about" class="nav-link text-gray-600 font-medium">About Me</a>
-                <a href="#academic-projects" class="nav-link text-gray-600 font-medium">Academic Projects</a>
-                <a href="#projects" class="nav-link text-gray-600 font-medium">My Projects</a>
-                <button onclick="showReadMeModal()" class="nav-link text-gray-600 font-medium bg-transparent border-none cursor-pointer">README</button>
-                <a href="https://drive.google.com/drive/folders/16IEAmmFaVHOD_y1dpCjGZiLzdloiM7FL?usp=drive_link" target="_blank" class="nav-link text-gray-600 font-medium">Google Drive</a>
-                <a href="yourcv.pdf" download class="nav-link text-gray-600 font-medium">Download CV</a>
-            </div>
-        </nav>
+                <blockquote class="border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-12">
+                    "The only way to do great work is to love what you do."
+                    <footer class="mt-1 text-sm text-gray-500">Steve Jobs</footer>
+                </blockquote>
 
-        <main class="p-6 md:p-8">
+                <div class="space-y-3">
+                    <a href="https://www.linkedin.com/in/kahaf-alam" target="_blank" class="social-link">
+                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/2417735" target="_blank" class="social-link">
+                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.6.45.45 0 0 0-.6-.3c-.3 0-.6.1-.8.4a.5.5 0 0 1-.8.2c-.3-.2-.5-.4-.7-.6-.2-.2-.3-.5-.3-.9v-.3c0-.4 0-.8.1-1.2v-.2c-.3-.4-.6-.7-1-1.1s-1.1-.7-1.8-.7c-.8 0-1.4.2-1.9.7s-.8 1-.9 1.6c-.3.8-.4 1.7-.4 2.8v3.6c0 .4-.2.8-.5 1-.3.2-.8.3-1.3.3h-1.4v-3.6c0-.8.3-1.5.8-2s1.3-.9 2.1-1.1a14.7 14.7 0 0 1 1.7-1.4c.5-.3 1-.5 1.5-.5.4 0 .7.1 1.1.3s.7.5 1 .8.6.6.9 1a.5.5 0 0 0 .5.2.5.5 0 0 0 .5-.2v-1.1c0-.4.1-.7.2-1s.4-.6.7-.8c.4-.2.9-.3 1.5-.3h.1c.5 0 1 .1 1.4.3s.8.5 1.1.9c.3.4.5.8.6 1.3v.1c0 .5-.1 1-.3 1.4s-.5.7-.9 1c-.4.3-.8.6-1.2.7-.4.2-.8.3-1.3.3h-.1c.3.5.5 1.1.5 1.8v.7h-1.4zM12 2C6.5 2 2 6.5 2 12c0 4.4 2.9 8.2 7 9.5.5.1.7-.2.7-.5v-1.9c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .5 1.7.3 2.2.2.1-.8.4-1.2.7-1.5-2-.2-4.1-1-4.1-4.4 0-1 .4-2 .9-2.7C5.3 8.8 5 8 5.4 7c0 0 .8-.3 2.5 1.1a8.3 8.3 0 0 1 4.1 0c1.7-1.4 2.5-1.1 2.5-1.1.4 1 .1 1.8 0 2.4.6.7.9 1.7.9 2.7 0 3.4-2.1 4.2-4.1 4.4.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5C18.9 20.2 22 16.5 22 12c0-5.5-4.5-10-10-10"/></svg>
+                        GitHub
+                    </a>
+                    <a href="https://www.youtube.com/@kahafalam3450" target="_blank" class="social-link">
+                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 15.5l5.5 3V5l-5.5 3V5l-5.5 3v10.5l5.5-3z"/></svg>
+                        YouTube
+                    </a>
+                </div>
+            </section>
 
-            <section id="about" class="section">
-                <h2 class="text-2xl section-title">About Me</h2>
-                <div class="info-card">
-                    <h3 class="info-card-title text-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                        Personal Information
-                    </h3>
-                    <ul class="info-list">
-                        <li><strong>Name:</strong> ALAM AL KAHAF</li>
-                        <li><strong>Phone:</strong> 010-9672-4615</li>
-                        <li><strong>Email:</strong> 2417735@donga.ac.kr</li>
-                        <li><strong>Location:</strong> Busan, South Korea</li>
-                    </ul>
-                </div>
-            </section>
-            
-            ---
+            <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
+                <div class="profile-circle rounded-full overflow-hidden bg-gray-200 shadow-xl">
+                    <img 
+                        src="unnamed.png" 
+                        alt="ALAM AL KAHAF Profile Picture" 
+                        class="w-full h-full object-cover object-center"
+                    >
+                </div>
+            </div>
+        </main>
 
-            <section id="academic-projects" class="section">
-                <h2 class="text-2xl section-title">Academic Projects</h2>
-                <div class="grid grid-cols-1-sm-2-lg-3 gap-6">
-                    <div class="info-card">
-                        <h3 class="info-card-title text-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                            E-commerce Platform
-                        </h3>
-                        <ul class="info-list">
-                            <li><strong>Course:</strong> Web Development Fundamentals</li>
-                            <li><strong>Description:</strong> A full-stack e-commerce site with user authentication, product listings, and a shopping cart.</li>
-                            <li><strong>Technologies:</strong> React, Node.js, Express, MongoDB</li>
-                        </ul>
-                    </div>
-                    <div class="info-card">
-                        <h3 class="info-card-title text-lg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                            Data Analysis Dashboard
-                        </h3>
-                        <ul class="info-list">
-                            <li><strong>Course:</strong> Data Science in Business</li>
-                            <li><strong>Description:</strong> An interactive dashboard for visualizing sales and customer data to identify key business trends.</li>
-                            <li><strong>Technologies:</strong> Python, Pandas, Matplotlib, Dash</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            
-            ---
+        ---
 
-            <section id="projects" class="section">
-                <h2 class="text-2xl section-title">My Projects</h2>
-                <div class="grid grid-cols-1-sm-2-lg-3 gap-6">
-                    <div class="project-card">
-                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Foreign" alt="Foreign Project" class="project-card-image">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Foreign Project</h3>
-                        <p class="text-gray-600 text-sm mb-4">A web-based project for managing foreign student resources and information.</p>
-                        <a href="https://2417735.github.io/Foreign/" target="_blank" class="project-link-button text-center">View Project</a>
-                    </div>
-                    <div class="project-card">
-                        <img src="https://placehold.co/600x400/E0F2FE/2563EB?text=Crypterror" alt="Crypterror Project" class="project-card-image">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Crypterror</h3>
-                        <p class="text-gray-600 text-sm mb-4">An application focused on cybersecurity concepts and cryptographic principles.</p>
-                        <a href="https://2417735.github.io/crypterror/" target="_blank" class="project-link-button text-center">View Project</a>
-                    </div>
-                </div>
-            </section>
-            
-            ---
+        <section id="projects" class="pt-10 pb-20">
+            <h2 class="text-3xl font-bold mb-8">My Adventures (Projects)</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="adventure-box">
+                    <h3 class="text-xl font-semibold mb-2 text-blue-600">Global Financial Analysis</h3>
+                    <p class="text-gray-700 mb-4">
+                        A comprehensive study using **Python (Pandas, NumPy)** and predictive modeling to forecast market trends across various global indices.
+                    </p>
+                    <a href="#" class="text-sm text-blue-500 hover:text-blue-700 font-medium">View Case Study &rarr;</a>
+                </div>
 
-            <section id="adventures" class="section">
-                <h2 class="text-2xl section-title">Recent Adventures</h2>
-                <div class="grid grid-cols-1-sm-2-lg-3 gap-6">
-                    <div class="info-card">
-                        <img src="jeju3-17.jpeg" alt="Jeju Island Trip" class="rounded-lg mb-4 w-full h-auto">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">My Jeju Trip 🌴</h3>
-                        <p class="text-gray-600 text-sm">
-                            An unforgettable adventure exploring the volcanic landscapes, stunning beaches, and unique culture of Jeju Island.
-                        </p>
-                        <p class="text-gray-400 text-xs mt-2">October 2025 (Placeholder)</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <img src="IMG_1775.jpeg" alt="Siyak Mountain Summit" class="rounded-lg mb-4 w-full h-auto">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Siyak Mountain Summit</h3>
-                        <p class="text-gray-600 text-sm">
-                            A breathtaking hike up Siyak Mountain (510m) offering panoramic views of Busan, South Korea.
-                        </p>
-                        <p class="text-gray-400 text-xs mt-2">May 2025</p>
-                    </div>
-                    <div class="info-card">
-                        <img src="caption.jpg" alt="Donga University" class="rounded-lg mb-4 w-full h-auto">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Donga University</h3>
-                        <p class="text-gray-600 text-sm">
-                            Exploring the beautiful campus of Donga University, a mix of modern and traditional Korean architecture.
-                        </p>
-                        <p class="text-gray-400 text-xs mt-2">March 2025</p>
-                    </div>
-                </div>
-            </section>
+                <div class="adventure-box">
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">E-Commerce Platform Rebuild</h3>
+                    <p class="text-gray-700 mb-4">
+                        Developed a scalable e-commerce backend using **Node.js** and **MongoDB**, resulting in a 30% reduction in server response time.
+                    </p>
+                    <a href="#" class="text-sm text-green-500 hover:text-green-700 font-medium">View Code on GitHub &rarr;</a>
+                </div>
 
-        </main>
+                <div class="adventure-box">
+                    <h3 class="text-xl font-semibold mb-2 text-yellow-600">Donga University Tech Workshop</h3>
+                    <p class="text-gray-700 mb-4">
+                        Led a series of workshops teaching fundamentals of **SQL and data visualization** to over 50 undergraduate students.
+                    </p>
+                    <a href="#" class="text-sm text-yellow-500 hover:text-yellow-700 font-medium">See Photos & Details &rarr;</a>
+                </div>
 
-        <footer class="text-center py-6 text-gray-500 text-sm border-t border-gray-200 mt-6">
-            <p>&copy; 2025 ALAM AL KAHAF. All rights reserved.</p>
-        </footer>
-    </div>
+            </div>
+        </section>
 
-    <div id="instagramModal" class="modal-overlay">
-        <div class="modal-content !p-6">
-            <button class="modal-close-button" onclick="closeInstagramModal()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-            </button>
-            <h3 class="text-xl font-semibold text-gray-800 mb-4">Connect on Instagram</h3>
-            <a href="https://www.instagram.com/being_choto?igsh=MWZoMnJrd3gzbHlvOA%3D%3D&utm_source=qr" target="_blank" class="button-option">
-                Visit @BEING_CHOTO
-            </a>
-            <p class="text-sm text-gray-600 mt-4">Opens in a new tab.</p>
-        </div>
-    </div>
-
-    <div id="readMeModal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close-button" onclick="closeReadMeModal()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-            </button>
-            <h3 class="text-xl font-semibold text-gray-800 mb-6">Select a README Document</h3>
-            <a href="https://docs.google.com/document/d/1xe9krDjvvUrDFGY1bn4iDg_NHSHtk3PP5S_SjNl0-rQ/edit?usp=sharing" target="_blank" class="button-option">
-                Digital Literacy
-            </a>
-            <a href="https://docs.google.com/document/d/1CPx5GHMdnrahhT2PI1-otAzeyNKrGcKFs2yZfFKJJ_A/edit?tab=t.0" target="_blank" class="button-option">
-                Master Assignment
-            </a>
-        </div>
-    </div>
-
-    <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js"></script>
-    <script>
-        // Instagram Modal Functions
-        function showInstagramModal() {
-            const modal = document.getElementById('instagramModal');
-            if (modal) {
-                modal.classList.add('open');
-            }
-        }
-
-        function closeInstagramModal() {
-            const modal = document.getElementById('instagramModal');
-            if (modal) {
-                modal.classList.remove('open');
-            }
-        }
-        
-        // README Modal Functions
-        function showReadMeModal() {
-            const modal = document.getElementById('readMeModal');
-            if (modal) {
-                modal.classList.add('open');
-            }
-        }
-
-        function closeReadMeModal() {
-            const modal = document.getElementById('readMeModal');
-            if (modal) {
-                modal.classList.remove('open');
-            }
-        }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-        });
-    </script>
+    </div>
 </body>
 </html>
