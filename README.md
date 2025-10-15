@@ -20,7 +20,7 @@
             padding: 2rem 1.5rem;
         }
 
-        /* SOCIAL LINK STYLING */
+        /* SOCIAL/DOCUMENT LINK STYLING */
         .social-link {
             display: flex;
             align-items: center;
@@ -59,7 +59,7 @@
             }
         }
 
-        /* NEW: ADVENTURE/PROJECT BOX STYLING */
+        /* ADVENTURE/PROJECT BOX STYLING */
         .adventure-box {
             border: 1px solid #e5e5e5;
             padding: 1.5rem;
@@ -86,6 +86,8 @@
             </nav>
         </header>
         
+        ---
+
         <main class="grid lg:grid-cols-2 gap-12 items-start mb-20">
             
             <section class="order-2 lg:order-1">
@@ -108,6 +110,16 @@
                 </blockquote>
 
                 <div class="space-y-3">
+                    <a href="YOUR_CV_LINK_HERE" target="_blank" class="social-link">
+                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="19" x2="16" y2="19"/></svg>
+                        Download CV / Resume
+                    </a>
+                    
+                    <a href="YOUR_GOOGLE_DRIVE_LINK_HERE" target="_blank" class="social-link">
+                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242M16 20h2"/><path d="M16 20l-1.5-1.5M16 20l-1.5 1.5"/><path d="M16 20l1.5-1.5M16 20l1.5 1.5"/></svg>
+                        View Google Drive Files
+                    </a>
+                    
                     <a href="https://www.linkedin.com/in/kahaf-alam" target="_blank" class="social-link">
                         <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                         LinkedIn
