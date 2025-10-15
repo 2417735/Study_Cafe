@@ -59,16 +59,29 @@
             }
         }
 
-        /* ADVENTURE/PROJECT BOX STYLING */
-        .adventure-box {
+        /* PROJECT BOX STYLING */
+        .project-box {
             border: 1px solid #e5e5e5;
             padding: 1.5rem;
             border-radius: 12px;
             transition: box-shadow 0.3s, border-color 0.3s;
         }
-        .adventure-box:hover {
+        .project-box:hover {
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             border-color: #d1d5db;
+        }
+
+        /* ADVENTURE CARD STYLING (for blog entries) */
+        .adventure-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+        }
+        .adventure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -81,7 +94,7 @@
             <nav class="flex space-x-4 text-gray-500 font-medium overflow-x-auto whitespace-nowrap pb-1">
                 <a href="#" class="text-black border-b-2 border-black pb-1">Home</a>
                 <a href="#projects" class="hover:text-black">Projects</a>
-                <a href="#" class="hover:text-black">About</a>
+                <a href="#adventures" class="hover:text-black">Adventures</a>
                 <a href="#" class="hover:text-black">Contact</a>
             </nav>
         </header>
@@ -115,9 +128,9 @@
                         Download CV / Resume
                     </a>
                     
-                    <a href="YOUR_GOOGLE_DRIVE_LINK_HERE" target="_blank" class="social-link">
+                    <a href="#" onclick="checkPin(event)" class="social-link">
                         <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242M16 20h2"/><path d="M16 20l-1.5-1.5M16 20l-1.5 1.5"/><path d="M16 20l1.5-1.5M16 20l1.5 1.5"/></svg>
-                        View Google Drive Files
+                        View Google Drive Files (PIN Required)
                     </a>
                     
                     <a href="https://www.linkedin.com/in/kahaf-alam" target="_blank" class="social-link">
@@ -148,38 +161,113 @@
 
         ---
 
-        <section id="projects" class="pt-10 pb-20">
-            <h2 class="text-3xl font-bold mb-8">My Adventures (Projects)</h2>
+        <section id="projects" class="pt-10 mb-20">
+            <h2 class="text-3xl font-bold mb-8">Academic Projects</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
-                <div class="adventure-box">
-                    <h3 class="text-xl font-semibold mb-2 text-blue-600">Global Financial Analysis</h3>
+                <div class="project-box">
+                    <h3 class="text-xl font-semibold mb-2 text-blue-600">Advanced Data Modeling Thesis</h3>
                     <p class="text-gray-700 mb-4">
-                        A comprehensive study using **Python (Pandas, NumPy)** and predictive modeling to forecast market trends across various global indices.
+                        A comprehensive study on time-series analysis using ARIMA and LSTM models for stock market prediction (Academic Thesis).
                     </p>
-                    <a href="#" class="text-sm text-blue-500 hover:text-blue-700 font-medium">View Case Study &rarr;</a>
+                    <a href="#" class="text-sm text-blue-500 hover:text-blue-700 font-medium">View Report &rarr;</a>
                 </div>
 
-                <div class="adventure-box">
-                    <h3 class="text-xl font-semibold mb-2 text-green-600">E-Commerce Platform Rebuild</h3>
+                <div class="project-box">
+                    <h3 class="text-xl font-semibold mb-2 text-green-600">Donga University Student Portal</h3>
                     <p class="text-gray-700 mb-4">
-                        Developed a scalable e-commerce backend using **Node.js** and **MongoDB**, resulting in a 30% reduction in server response time.
+                        Built a secure prototype for a student grading and attendance system using **Java Spring Boot** and **React**.
                     </p>
-                    <a href="#" class="text-sm text-green-500 hover:text-green-700 font-medium">View Code on GitHub &rarr;</a>
+                    <a href="#" class="text-sm text-green-500 hover:text-green-700 font-medium">View GitHub Repo &rarr;</a>
                 </div>
 
-                <div class="adventure-box">
-                    <h3 class="text-xl font-semibold mb-2 text-yellow-600">Donga University Tech Workshop</h3>
+                <div class="project-box">
+                    <h3 class="text-xl font-semibold mb-2 text-yellow-600">SQL Database Optimization</h3>
                     <p class="text-gray-700 mb-4">
-                        Led a series of workshops teaching fundamentals of **SQL and data visualization** to over 50 undergraduate students.
+                        Course project focused on optimizing complex SQL queries for a large fictional retail database, improving response speed by 45%.
                     </p>
-                    <a href="#" class="text-sm text-yellow-500 hover:text-yellow-700 font-medium">See Photos & Details &rarr;</a>
+                    <a href="#" class="text-sm text-yellow-500 hover:text-yellow-700 font-medium">View Documentation &rarr;</a>
+                </div>
+
+            </div>
+        </section>
+
+        ---
+        
+        <section id="adventures" class="pt-10 pb-20">
+            <h2 class="text-3xl font-bold mb-8">Personal Adventures & Insights</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="adventure-card">
+                    <img src="https://via.placeholder.com/600x400/D1FAE5/065F46?text=Hiking+Adventure" alt="Hiking Trip" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Conquering Geumjeongsan Peak</h3>
+                        <p class="text-gray-600 text-sm mb-3">
+                            A reflection on my recent hike near Busan, focusing on the views, the challenge, and the gear that got me there.
+                        </p>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 font-medium flex items-center">
+                            Read Blog 
+                            <svg class="ml-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="adventure-card">
+                    <img src="https://via.placeholder.com/600x400/FEE2E2/991B1B?text=Book+Review" alt="Book Review" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">Book Review: 'Atomic Habits'</h3>
+                        <p class="text-gray-600 text-sm mb-3">
+                            A deep dive into the practical advice from James Clear on building good habits and breaking bad ones. Highly recommended!
+                        </p>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 font-medium flex items-center">
+                            Read Blog 
+                            <svg class="ml-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="adventure-card">
+                    <img src="https://via.placeholder.com/600x400/DBEAFE/1D4ED8?text=Campus+Tour" alt="Campus Tour" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold mb-2">The Best Study Spots at Donga</h3>
+                        <p class="text-gray-600 text-sm mb-3">
+                            A visual tour of my favorite cafes and quiet library spots on campus for late-night studying (with a quick movie review included).
+                        </p>
+                        <a href="#" class="text-blue-500 hover:text-blue-700 font-medium flex items-center">
+                            Read Blog 
+                            <svg class="ml-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
                 </div>
 
             </div>
         </section>
 
     </div>
+    <script>
+        // --- JAVASCRIPT FOR PIN PROTECTION ---
+        function checkPin(event) {
+            // Prevent the default link action (going to href="#")
+            event.preventDefault(); 
+            
+            const CORRECT_PIN = "2588";
+            // IMPORTANT: Replace this placeholder with your actual Google Drive URL
+            const DRIVE_URL = "YOUR_GOOGLE_DRIVE_LINK_HERE"; 
+
+            // Prompt the user for the PIN
+            const userPin = prompt("Please enter the 4-digit PIN to view the Google Drive files:");
+
+            if (userPin === CORRECT_PIN) {
+                // If the PIN is correct, redirect them to the Drive link
+                window.open(DRIVE_URL, '_blank');
+            } else if (userPin !== null && userPin !== "") {
+                // If they entered something but it was wrong
+                alert("Incorrect PIN. Access denied.");
+            }
+            // If userPin is null (user clicked Cancel), do nothing
+        }
+    </script>
 </body>
 </html>
