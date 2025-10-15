@@ -292,7 +292,7 @@
                 <p class="text-sm font-medium mt-1 opacity-90">Student & Analyst </p>
                 <div class="social-icons flex mt-4">
                     <a href="https://www.youtube.com/@kahafalam3450" target="_blank" title="YouTube Link">YouTube</a>
-                    <a href="https://www.linkedin.com/in/kahaf-alam" target="_blank" title="LinkedIn Profile">LinkedIn</a>
+                                        <a href="https://www.linkedin.com/in/kahaf-alam" target="_blank" title="LinkedIn Profile">LinkedIn</a>
                     <button onclick="showInstagramModal()" class="flex items-center justify-center p-0" title="Instagram Profile">Instagram</button>
                     <a href="https://github.com/2417735" target="_blank" title="GitHub Profile">GitHub</a>
                 </div>
@@ -383,15 +383,7 @@
             <section id="adventures" class="section">
                 <h2 class="text-2xl section-title">Recent Adventures</h2>
                 <div class="grid grid-cols-1-sm-2-lg-3 gap-6">
-                                        <div class="info-card">
-                        <img src="https://placehold.co/600x400/BFDBFE/1D4ED8?text=Men+Without+Women" alt="Book cover of Men Without Women" class="rounded-lg mb-4 w-full h-auto">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Book Review: Men Without Women 📚</h3>
-                        <p class="text-gray-600 text-sm">
-                            A reflective collection of short stories by **Haruki Murakami**. Deeply moving exploration of loneliness, love, and the quiet surrealism of modern life. Highly recommended.
-                        </p>
-                        <p class="text-gray-400 text-xs mt-2">Completed: October 2025</p>
-                    </div>
-                                        <div class="info-card">
+                    <div class="info-card">
                         <img src="jeju3-17.jpeg" alt="Jeju Island Trip" class="rounded-lg mb-4 w-full h-auto">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">My Jeju Trip 🌴</h3>
                         <p class="text-gray-600 text-sm">
@@ -400,7 +392,7 @@
                         <p class="text-gray-400 text-xs mt-2">October 2025 (Placeholder)</p>
                     </div>
                     
-                                        <div class="info-card">
+                    <div class="info-card">
                         <img src="IMG_1775.jpeg" alt="Siyak Mountain Summit" class="rounded-lg mb-4 w-full h-auto">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Siyak Mountain Summit</h3>
                         <p class="text-gray-600 text-sm">
@@ -408,7 +400,7 @@
                         </p>
                         <p class="text-gray-400 text-xs mt-2">May 2025</p>
                     </div>
-                                        <div class="info-card">
+                    <div class="info-card">
                         <img src="caption.jpg" alt="Donga University" class="rounded-lg mb-4 w-full h-auto">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">Donga University</h3>
                         <p class="text-gray-600 text-sm">
