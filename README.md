@@ -1,272 +1,292 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALAM AL KAHAF </title>
+    <title>ALAM AL KAHAF | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* BASE STYLES */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --accent-color: #3b82f6;
+            --card-bg: #f7f7f7;
+        }
+
+        .dark-mode {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --accent-color: #60a5fa;
+            --card-bg: #1e293b;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #ffffff;
-            min-height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.4s, color 0.4s;
+            overflow-x: hidden;
         }
-        
-        /* CONTENT CONTAINER */
+
         .main-content {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
         }
 
-        /* SOCIAL/DOCUMENT LINK STYLING */
-        .social-link {
+        /* --- INTERACTIVE IDENTITY CARD --- */
+        .profile-container {
+            position: relative;
+            cursor: pointer;
+            perspective: 1000px;
+        }
+
+        .profile-circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--accent-color);
+            transition: transform 0.5s ease;
+        }
+
+        .details-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            border-radius: 8px;
-            background-color: #f7f7f7;
-            color: #333;
-            font-weight: 500;
-            transition: background-color 0.2s;
-            text-decoration: none;
+            padding: 2rem;
+            color: white;
+            opacity: 0;
+            transform: rotateY(180deg);
+            transition: opacity 0.5s, transform 0.5s;
+            text-align: center;
+        }
+
+        .profile-container:hover .details-overlay {
+            opacity: 1;
+            transform: rotateY(0deg);
+        }
+
+        .profile-container:hover .profile-circle {
+            transform: rotateY(180deg);
+        }
+
+        /* --- DARK MODE TOGGLE --- */
+        #theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            background: var(--accent-color);
+            color: white;
+            padding: 12px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        #theme-toggle:hover { transform: scale(1.1); }
+
+        /* --- GENERAL UI EFFECTS --- */
+        .social-link {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .social-link:hover {
-            background-color: #ebebeb;
+            transform: translateX(8px);
+            background-color: var(--accent-color);
+            color: white;
         }
 
-        .social-icon {
-            margin-right: 0.75rem;
-            width: 20px;
-            height: 20px;
-        }
-        
-        /* RESPONSIVE PROFILE IMAGE SIZE */
-        .profile-circle {
-            width: 280px; 
-            height: 280px; 
-            margin-bottom: 1.5rem; 
+        .project-box, .adventure-card {
+            background-color: var(--bg-color);
+            border: 1px solid rgba(128, 128, 128, 0.2);
+            transition: all 0.3s ease;
         }
 
-        @media (min-width: 768px) {
-            .profile-circle {
-                width: 384px; 
-                height: 384px; 
-                margin-bottom: 0;
-            }
-        }
-
-        /* PROJECT BOX STYLING */
-        .project-box {
-            border: 1px solid #e5e5e5;
-            padding: 1.5rem;
-            border-radius: 12px;
-            transition: box-shadow 0.3s, border-color 0.3s;
-        }
         .project-box:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border-color: #d1d5db;
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* ADVENTURE CARD STYLING (for blog entries) */
-        .adventure-card {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            background-color: white;
+        .fuji-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         }
-        .adventure-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .profile-circle { width: 250px; height: 250px; }
+            .details-overlay { font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
 
+    <button id="theme-toggle" title="Toggle Night Mode">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+
     <div class="main-content">
         
-        <header class="mb-16">
-            <h1 class="text-3xl font-bold mb-10">Portfolio</h1>
-            <nav class="flex space-x-4 text-gray-500 font-medium overflow-x-auto whitespace-nowrap pb-1">
-                <a href="#" class="text-black border-b-2 border-black pb-1">Home</a>
-                <a href="#projects" class="hover:text-black">Projects</a>
-                <a href="#adventures" class="hover:text-black">Adventures</a>
-                <a href="#" class="hover:text-black">Contact</a>
-            </nav>
+        <header class="mb-16 flex justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold">Portfolio</h1>
+                <nav class="flex space-x-6 mt-4 text-sm font-medium opacity-70">
+                    <a href="#" class="hover:text-blue-500 transition">Home</a>
+                    <a href="#projects" class="hover:text-blue-500 transition">Projects</a>
+                    <a href="#adventures" class="hover:text-blue-500 transition">Adventures</a>
+                </nav>
+            </div>
         </header>
-        
-        ---
 
-        <main class="grid lg:grid-cols-2 gap-12 items-start mb-20">
-            
+        <main class="grid lg:grid-cols-2 gap-16 items-center mb-32">
             <section class="order-2 lg:order-1">
-                <p class="text-xl md:text-2xl mb-2">Hey there! 👋</p>
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    I'm ALAM AL KAHAF.
-                </h2>
-                <p class="text-gray-500 mb-8">
-                    2417735@donga.ac.kr
+                <span class="text-blue-500 font-bold tracking-widest text-xs uppercase">Welcome to my world</span>
+                <h2 class="text-5xl md:text-6xl font-bold mt-2 mb-6 tracking-tight">I'm Alam Al Kahaf</h2>
+                <p class="text-lg opacity-80 leading-relaxed mb-8">
+                    Data Analyst & Full-Stack Developer at **Donga University**. 
+                    I turn complex data into visual stories and build digital experiences that matter.
                 </p>
 
-                <h3 class="text-lg md:text-xl font-bold mb-3">Student & Analyst</h3>
-                <p class="text-gray-700 leading-relaxed mb-8">
-                    I am a student at **Donga University** specializing in data analysis and full-stack development. With a passion for transforming raw data into actionable insights and building robust web applications, I am dedicated to pushing the boundaries of technology and learning.
-                </p>
-
-                <blockquote class="border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-12">
-                    "The only way to do great work is to love what you do."
-                    <footer class="mt-1 text-sm text-gray-500">Steve Jobs</footer>
-                </blockquote>
-
-                <div class="space-y-3">
-                    <a href="YOUR_CV_LINK_HERE" target="_blank" class="social-link">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="19" x2="16" y2="19"/></svg>
-                        Download CV / Resume
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <a href="mailto:2417735@donga.ac.kr" class="social-link p-4 rounded-xl flex items-center font-medium">
+                        <svg class="mr-3" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        2417735@donga.ac.kr
                     </a>
-                    
-                    <a href="#" onclick="checkPin(event)" class="social-link">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242M16 20h2"/><path d="M16 20l-1.5-1.5M16 20l-1.5 1.5"/><path d="M16 20l1.5-1.5M16 20l1.5 1.5"/></svg>
-                        View Google Drive Files (PIN Required)
-                    </a>
-                    
-                    <a href="https://www.linkedin.com/in/kahaf-alam" target="_blank" class="social-link">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                        LinkedIn
-                    </a>
-                    <a href="https://github.com/2417735" target="_blank" class="social-link">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.6.45.45 0 0 0-.6-.3c-.3 0-.6.1-.8.4a.5.5 0 0 1-.8.2c-.3-.2-.5-.4-.7-.6-.2-.2-.3-.5-.3-.9v-.3c0-.4 0-.8.1-1.2v-.2c-.3-.4-.6-.7-1-1.1s-1.1-.7-1.8-.7c-.8 0-1.4.2-1.9.7s-.8 1-.9 1.6c-.3.8-.4 1.7-.4 2.8v3.6c0 .4-.2.8-.5 1-.3.2-.8.3-1.3.3h-1.4v-3.6c0-.8.3-1.5.8-2s1.3-.9 2.1-1.1a14.7 14.7 0 0 1 1.7-1.4c.5-.3 1-.5 1.5-.5.4 0 .7.1 1.1.3s.7.5 1 .8.6.6.9 1a.5.5 0 0 0 .5.2.5.5 0 0 0 .5-.2v-1.1c0-.4.1-.7.2-1s.4-.6.7-.8c.4-.2.9-.3 1.5-.3h.1c.5 0 1 .1 1.4.3s.8.5 1.1.9c.3.4.5.8.6 1.3v.1c0 .5-.1 1-.3 1.4s-.5.7-.9 1c-.4.3-.8.6-1.2.7-.4.2-.8.3-1.3.3h-.1c.3.5.5 1.1.5 1.8v.7h-1.4zM12 2C6.5 2 2 6.5 2 12c0 4.4 2.9 8.2 7 9.5.5.1.7-.2.7-.5v-1.9c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .5 1.7.3 2.2.2.1-.8.4-1.2.7-1.5-2-.2-4.1-1-4.1-4.4 0-1 .4-2 .9-2.7C5.3 8.8 5 8 5.4 7c0 0 .8-.3 2.5 1.1a8.3 8.3 0 0 1 4.1 0c1.7-1.4 2.5-1.1 2.5-1.1.4 1 .1 1.8 0 2.4.6.7.9 1.7.9 2.7 0 3.4-2.1 4.2-4.1 4.4.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.7.5C18.9 20.2 22 16.5 22 12c0-5.5-4.5-10-10-10"/></svg>
-                        GitHub
-                    </a>
-                    <a href="https://www.youtube.com/@kahafalam3450" target="_blank" class="social-link">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 15.5l5.5 3V5l-5.5 3V5l-5.5 3v10.5l5.5-3z"/></svg>
-                        YouTube
+                    <a href="https://github.com/2417735" target="_blank" class="social-link p-4 rounded-xl flex items-center font-medium">
+                        <svg class="mr-3" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        GitHub Profile
                     </a>
                 </div>
             </section>
 
             <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
-                <div class="profile-circle rounded-full overflow-hidden bg-gray-200 shadow-xl">
-                    <img 
-                        src="unnamed.png" 
-                        alt="ALAM AL KAHAF Profile Picture" 
-                        class="w-full h-full object-cover object-center"
-                    >
+                <div class="profile-container">
+                    <div class="profile-circle shadow-2xl">
+                        <img src="unnamed.png" alt="Profile" class="w-full h-full object-cover">
+                    </div>
+                    <div class="details-overlay">
+                        <h4 class="text-xl font-bold mb-2">My Journey</h4>
+                        <p class="text-sm opacity-90 px-4">
+                            Started as a tech enthusiast in 2022. <br><br>
+                            Now mastering **SQL**, **Python**, and **React** at Donga. <br><br>
+                            Goal: Building AI-driven data tools.
+                        </p>
+                        <div class="mt-6 flex space-x-2">
+                            <span class="text-[10px] bg-blue-500 px-2 py-1 rounded">Analyst</span>
+                            <span class="text-[10px] bg-purple-500 px-2 py-1 rounded">Developer</span>
+                            <span class="text-[10px] bg-green-500 px-2 py-1 rounded">Hiker</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
 
-        ---
-
-        <section id="projects" class="pt-10 mb-20">
-            <h2 class="text-3xl font-bold mb-8">Academic Projects</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <div class="project-box">
-                    <h3 class="text-xl font-semibold mb-2 text-blue-600">Advanced Data Modeling Thesis</h3>
-                    <p class="text-gray-700 mb-4">
-                        A comprehensive study on time-series analysis using ARIMA and LSTM models for stock market prediction (Academic Thesis).
-                    </p>
-                    <a href="#" class="text-sm text-blue-500 hover:text-blue-700 font-medium">View Report &rarr;</a>
+        <section id="projects" class="mb-32">
+            <h3 class="text-2xl font-bold mb-10 flex items-center">
+                <span class="w-8 h-1 bg-blue-500 mr-4"></span> Academic Projects
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="project-box p-8 rounded-2xl">
+                    <h4 class="text-xl font-bold mb-3 text-blue-500">Data Modeling</h4>
+                    <p class="text-sm opacity-70 mb-6 text-gray-500">Stock prediction using ARIMA and LSTM models for academic thesis.</p>
+                    <a href="#" class="text-xs font-bold uppercase tracking-widest hover:underline">View Report</a>
                 </div>
-
-                <div class="project-box">
-                    <h3 class="text-xl font-semibold mb-2 text-green-600">Donga University Student Portal</h3>
-                    <p class="text-gray-700 mb-4">
-                        Built a secure prototype for a student grading and attendance system using **Java Spring Boot** and **React**.
-                    </p>
-                    <a href="#" class="text-sm text-green-500 hover:text-green-700 font-medium">View GitHub Repo &rarr;</a>
+                <div class="project-box p-8 rounded-2xl">
+                    <h4 class="text-xl font-bold mb-3 text-green-500">Student Portal</h4>
+                    <p class="text-sm opacity-70 mb-6 text-gray-500">Full-stack system for Donga University grading using Spring Boot.</p>
+                    <a href="#" class="text-xs font-bold uppercase tracking-widest hover:underline">Repo Link</a>
                 </div>
-
-                <div class="project-box">
-                    <h3 class="text-xl font-semibold mb-2 text-yellow-600">SQL Database Optimization</h3>
-                    <p class="text-gray-700 mb-4">
-                        Course project focused on optimizing complex SQL queries for a large fictional retail database, improving response speed by 45%.
-                    </p>
-                    <a href="#" class="text-sm text-yellow-500 hover:text-yellow-700 font-medium">View Documentation &rarr;</a>
+                <div class="project-box p-8 rounded-2xl">
+                    <h4 class="text-xl font-bold mb-3 text-yellow-500">SQL Tuning</h4>
+                    <p class="text-sm opacity-70 mb-6 text-gray-500">Optimizing retail databases for 45% faster query responses.</p>
+                    <a href="#" class="text-xs font-bold uppercase tracking-widest hover:underline">Doc Link</a>
                 </div>
-
             </div>
         </section>
 
-        ---
-        
-        <section id="adventures" class="pt-10 pb-20">
-            <h2 class="text-3xl font-bold mb-8">Personal Adventures & Insights</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <div class="adventure-card">
-                    <img src="https://via.placeholder.com/600x400/D1FAE5/065F46?text=Hiking+Adventure" alt="Hiking Trip" class="w-full h-40 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Conquering Geumjeongsan Peak</h3>
-                        <p class="text-gray-600 text-sm mb-3">
-                            A reflection on my recent hike near Busan, focusing on the views, the challenge, and the gear that got me there.
-                        </p>
-                        <a href="#" class="text-blue-500 hover:text-blue-700 font-medium flex items-center">
-                            Read Blog 
-                            <svg class="ml-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </a>
+        <section id="adventures" class="mb-32">
+            <h3 class="text-2xl font-bold mb-10 flex items-center">
+                <span class="w-8 h-1 bg-red-500 mr-4"></span> Adventures
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="adventure-card rounded-3xl overflow-hidden group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551632432-c735e82992a7?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold mb-2">Hiking Geumjeongsan</h4>
+                        <p class="opacity-70 text-sm">A journey to the highest peak in Busan. Reflection on nature and discipline.</p>
                     </div>
                 </div>
-
-                <div class="adventure-card">
-                    <img src="https://via.placeholder.com/600x400/FEE2E2/991B1B?text=Book+Review" alt="Book Review" class="w-full h-40 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Book Review: 'Atomic Habits'</h3>
-                        <p class="text-gray-600 text-sm mb-3">
-                            A deep dive into the practical advice from James Clear on building good habits and breaking bad ones. Highly recommended!
-                        </p>
-                        <a href="#" class="text-blue-500 hover:text-blue-700 font-medium flex items-center">
-                            Read Blog 
-                            <svg class="ml-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </a>
+                <div class="adventure-card rounded-3xl overflow-hidden group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold mb-2">Atomic Habits Review</h4>
+                        <p class="opacity-70 text-sm">How 1% changes every day lead to massive coding improvements.</p>
                     </div>
                 </div>
-
-                <div class="adventure-card">
-                    <img src="https://via.placeholder.com/600x400/DBEAFE/1D4ED8?text=Campus+Tour" alt="Campus Tour" class="w-full h-40 object-cover">
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">The Best Study Spots at Donga</h3>
-                        <p class="text-gray-600 text-sm mb-3">
-                            A visual tour of my favorite cafes and quiet library spots on campus for late-night studying (with a quick movie review included).
-                        </p>
-                        <a href="#" class="text-blue-500 hover:text-blue-700 font-medium flex items-center">
-                            Read Blog 
-                            <svg class="ml-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </a>
-                    </div>
-                </div>
-
             </div>
         </section>
+
+        <section id="fuji-tribute" class="fuji-gradient rounded-[3rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
+            <div class="relative z-10">
+                <h2 class="text-7xl md:text-9xl font-black opacity-10 absolute -top-10 left-1/2 -translate-x-1/2">FUJI</h2>
+                <h3 class="text-4xl md:text-6xl font-bold mb-6">富士山</h3>
+                <p class="max-w-xl mx-auto opacity-80 leading-loose">
+                    At 3,776 meters, Mt. Fuji is the peak of resilience. 
+                    It stands as a silent mentor, teaching us that greatness is built on a solid foundation.
+                </p>
+                <div class="mt-10 text-[10px] tracking-[0.3em] opacity-40 uppercase">35.3606° N, 138.7274° E</div>
+            </div>
+        </section>
+
+        <footer class="mt-20 pb-10 text-center opacity-40 text-xs">
+            &copy; 2026 ALAM AL KAHAF • Designed with Passion
+        </footer>
 
     </div>
+
     <script>
-        // --- JAVASCRIPT FOR PIN PROTECTION ---
+        // DARK MODE TOGGLE LOGIC
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            themeToggle.innerHTML = isDark 
+                ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>'
+                : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+        });
+
+        // PIN PROTECTION
         function checkPin(event) {
-            // Prevent the default link action (going to href="#")
             event.preventDefault(); 
-            
             const CORRECT_PIN = "2588";
-            // IMPORTANT: Replace this placeholder with your actual Google Drive URL
             const DRIVE_URL = "YOUR_GOOGLE_DRIVE_LINK_HERE"; 
-
-            // Prompt the user for the PIN
-            const userPin = prompt("Please enter the 4-digit PIN to view the Google Drive files:");
-
+            const userPin = prompt("Enter PIN to view files:");
             if (userPin === CORRECT_PIN) {
-                // If the PIN is correct, redirect them to the Drive link
                 window.open(DRIVE_URL, '_blank');
-            } else if (userPin !== null && userPin !== "") {
-                // If they entered something but it was wrong
-                alert("Incorrect PIN. Access denied.");
+            } else if (userPin) {
+                alert("Access Denied.");
             }
-            // If userPin is null (user clicked Cancel), do nothing
         }
     </script>
 </body>
