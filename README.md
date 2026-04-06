@@ -246,11 +246,9 @@
             </div>
         
                     <div class="p-8">
-                        <h4 class="text-xl font-bold mb-2"> Apur Sangsar</h4>
+                        <h5 class="text-xl font-bold mb-2"> Apur Sangsar</h4>
                         <p class="opacity-70 text-sm">Indian great writer and film director's classic movie review.</p>
                     </div>
-                </div>
-            </div>
             
         </section>
 
