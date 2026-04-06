@@ -27,6 +27,7 @@
             color: var(--text-color);
             transition: background-color 0.4s, color 0.4s;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         .main-content {
@@ -81,7 +82,7 @@
             transform: rotateY(180deg);
         }
 
-        /* --- DARK MODE TOGGLE --- */
+        /* --- UI ELEMENTS --- */
         #theme-toggle {
             position: fixed;
             bottom: 2rem;
@@ -96,9 +97,6 @@
             transition: transform 0.3s;
         }
 
-        #theme-toggle:hover { transform: scale(1.1); }
-
-        /* --- GENERAL UI EFFECTS --- */
         .social-link {
             background-color: var(--card-bg);
             color: var(--text-color);
@@ -124,8 +122,13 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
+        /* --- GRADIENTS --- */
         .fuji-gradient {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+
+        .jeju-gradient {
+            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
         }
 
         @media (max-width: 768px) {
@@ -186,9 +189,9 @@
                         </p>
                         <div class="w-16 h-px bg-white/30 my-4"></div>
                         <div class="flex flex-wrap justify-center gap-2">
-                            <span class="text-[9px] bg-blue-500 px-2 py-1 rounded-full uppercase font-bold">Ai Data Analyst</span>
-                            <span class="text-[9px] bg-purple-500 px-2 py-1 rounded-full uppercase font-bold">SEO Optimizer</span>
-                            <span class="text-[9px] bg-green-500 px-2 py-1 rounded-full uppercase font-bold">Market Researcher</span>
+                            <span class="text-[9px] bg-blue-500 px-2 py-1 rounded-full uppercase font-bold text-white">Ai Data Analyst</span>
+                            <span class="text-[9px] bg-purple-500 px-2 py-1 rounded-full uppercase font-bold text-white">SEO Optimizer</span>
+                            <span class="text-[9px] bg-green-500 px-2 py-1 rounded-full uppercase font-bold text-white">Market Researcher</span>
                         </div>
                     </div>
                 </div>
@@ -203,21 +206,21 @@
                 <div class="project-box p-8 rounded-3xl flex flex-col justify-between">
                     <div>
                         <h4 class="text-xl font-bold mb-3 text-blue-500">Ai Data Analysis</h4>
-                        <p class="text-sm opacity-70 mb-6 leading-relaxed">Using Ai to identify bugs and optimize datasets for academic research and thesis development.</p>
+                        <p class="text-sm opacity-70 mb-6 leading-relaxed text-gray-500">Using Ai to identify bugs and optimize datasets for academic research and thesis development.</p>
                     </div>
                     <a href="#" class="text-xs font-bold uppercase tracking-widest hover:text-blue-500 transition">View Report &rarr;</a>
                 </div>
                 <div class="project-box p-8 rounded-3xl flex flex-col justify-between">
                     <div>
                         <h4 class="text-xl font-bold mb-3 text-green-500">Personal Portal</h4>
-                        <p class="text-sm opacity-70 mb-6 leading-relaxed">A study on building customized management portals leveraging artificial intelligence workflows.</p>
+                        <p class="text-sm opacity-70 mb-6 leading-relaxed text-gray-500">A study on building customized management portals leveraging artificial intelligence workflows.</p>
                     </div>
                     <a href="#" class="text-xs font-bold uppercase tracking-widest hover:text-green-500 transition">View Details &rarr;</a>
                 </div>
                 <div class="project-box p-8 rounded-3xl flex flex-col justify-between">
                     <div>
                         <h4 class="text-xl font-bold mb-3 text-yellow-500">Excel Formula Model</h4>
-                        <p class="text-sm opacity-70 mb-6 leading-relaxed">Designing complex logical models in Excel assisted by generative Ai for business efficiency.</p>
+                        <p class="text-sm opacity-70 mb-6 leading-relaxed text-gray-500">Designing complex logical models in Excel assisted by generative Ai for business efficiency.</p>
                     </div>
                     <a href="#" class="text-xs font-bold uppercase tracking-widest hover:text-yellow-500 transition">Doc Link &rarr;</a>
                 </div>
@@ -231,35 +234,57 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="adventure-card rounded-3xl overflow-hidden group">
                     <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551632432-c735e82992a7?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <img src="baomosa.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-6">
                         <h4 class="text-lg font-bold mb-2">Hiking Geumjeongsan</h4>
-                        <p class="opacity-70 text-xs leading-relaxed">A journey to the highest peak in Busan. A reflection on nature and the discipline required to reach the top.</p>
+                        <p class="opacity-70 text-xs leading-relaxed">A journey to the highest peak in Busan. A reflection on nature and discipline.</p>
                     </div>
                 </div>
                 <div class="adventure-card rounded-3xl overflow-hidden group">
                     <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <img src="atomic-habits-james-clear-irustima.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-6">
                         <h4 class="text-lg font-bold mb-2">Atomic Habits</h4>
-                        <p class="opacity-70 text-xs leading-relaxed">Insights into how 1% daily changes compound into massive life and professional improvements.</p>
+                        <p class="opacity-70 text-xs leading-relaxed">Insights into compound growth and life improvements through tiny daily habits.</p>
                     </div>
                 </div>
                 <div class="adventure-card rounded-3xl overflow-hidden group">
                     <div class="h-48 bg-slate-800 flex items-center justify-center">
-                         <span class="text-white font-bold opacity-20 text-4xl italic">Cinema</span>
+                         <span class="text-white font-bold opacity-20 text-3xl italic">Cinema Review</span>
                     </div>
                     <div class="p-6">
                         <h4 class="text-lg font-bold mb-2">Apur Sangsar</h4>
-                        <p class="opacity-70 text-xs leading-relaxed">Reviewing the classic masterpiece by Satyajit Ray, exploring themes of life, loss, and resilience.</p>
+                        <p class="opacity-70 text-xs leading-relaxed">Reviewing Satyajit Ray's masterpiece, exploring themes of life and resilience.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="fuji-tribute" class="fuji-gradient rounded-[2.5rem] md:rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
+        <section id="jeju-adventure" class="mb-10">
+            <div class="jeju-gradient rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-16 text-white relative overflow-hidden shadow-2xl">
+                <div class="absolute right-0 top-0 w-1/2 h-full opacity-30">
+                    <img src="jeju3-17.jpeg" alt="Jeju Trip" class="w-full h-full object-cover">
+                </div>
+                <div class="relative z-10 max-w-xl">
+                    <span class="bg-white/20 px-3 py-1 rounded-full text-[10px] uppercase font-bold tracking-widest">Featured Adventure</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Jeju Island Trip</h2>
+                    <p class="opacity-90 leading-relaxed text-sm md:text-base">
+                        Exploring the volcanic landscapes and serene coasts of Jeju. This trip was a deep dive into South Korea's natural beauty, from Hallasan to the emerald waters of the east.
+                    </p>
+                    <div class="mt-8 flex items-center space-x-4">
+                        <div class="h-px w-12 bg-white/50"></div>
+                        <span class="text-xs font-mono opacity-70 italic">Memories from the South</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="fuji-tribute" class="fuji-gradient rounded-[2.5rem] md:rounded-[3rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20 pointer-events-none">
+                <img src="fuji-san-and-lake.jpg" class="w-full h-full object-cover">
+            </div>
             <div class="relative z-10">
                 <h2 class="text-7xl md:text-9xl font-black opacity-10 absolute -top-10 left-1/2 -translate-x-1/2 select-none">FUJI</h2>
                 <h3 class="text-4xl md:text-6xl font-bold mb-6">富士山</h3>
@@ -277,7 +302,6 @@
     </div>
 
     <script>
-        // DARK MODE TOGGLE LOGIC
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
 
@@ -288,19 +312,6 @@
                 ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>'
                 : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
         });
-
-        // PIN PROTECTION (Optional use)
-        function checkPin(event) {
-            event.preventDefault(); 
-            const CORRECT_PIN = "2588";
-            const DRIVE_URL = "YOUR_GOOGLE_DRIVE_LINK_HERE"; 
-            const userPin = prompt("Enter PIN to view files:");
-            if (userPin === CORRECT_PIN) {
-                window.open(DRIVE_URL, '_blank');
-            } else if (userPin) {
-                alert("Access Denied.");
-            }
-        }
     </script>
 </body>
 </html>
