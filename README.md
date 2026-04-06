@@ -268,8 +268,8 @@
                          <img src="MV5BYjQwMDk3NGMtYzg2ZC00MWNmLTliZDUtM2MwYjZjM2E0MWYwXkEyXkFqcGc@._V1_.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-6 text-left">
-                        <h4 class="text-lg font-bold mb-2 text-yellow-500">Cinema Review</h4>
-                        <p class="opacity-70 text-xs leading-relaxed">Exploring life, loss, and resilience through cinematic masterpieces.</p>
+                        <h4 class="text-lg font-bold mb-2 text-yellow-500">Apur Sangsar</h4>
+                        <p class="opacity-70 text-xs leading-relaxed">Exploring Satyajit Ray's life, loss, and resilience through cinematic masterpieces.</p>
                     </div>
                 </div>
             </div>
