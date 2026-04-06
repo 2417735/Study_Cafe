@@ -158,8 +158,8 @@
                 <span class="text-blue-500 font-bold tracking-widest text-xs uppercase">Welcome to my world</span>
                 <h2 class="text-5xl md:text-6xl font-bold mt-2 mb-6 tracking-tight">I'm Alam Al Kahaf</h2>
                 <p class="text-lg opacity-80 leading-relaxed mb-8">
-                    Data Analyst & Full-Stack Developer at **Donga University**. 
-                    I turn complex data into visual stories and build digital experiences that matter.
+                    Business Management Student At Donga University. 
+                    
                 </p>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -180,9 +180,10 @@
                         <img src="unnamed.png" alt="Profile" class="w-full h-full object-cover">
                     </div>
                     <div class="details-overlay">
-                        <h4 class="text-xl font-bold mb-2">A </h4>
-                        <p class="text-sm opacity-90 px-4">
-                            “When I finish with track and field, I’ll change sports and move on. If I can’t race at the top level by 2016,then I want to turn my hand to another game – football because I can play and with enough effort I can get better.”* <br><br>
+                        <h4 class="text-xl font-bold mb-1">A </h4>
+                        <p class="text-sm opacity-80 px-5">
+                        
+                        “When I finish with track and field, I’ll change sports and move on. If I can’t race at the top level by 2016,then I want to turn my hand to another game – football because I can play and with enough effort I can get better.”* <br><br>
                             - Usain Bolt <br><br>
                            ___________________________
                         </p>
@@ -243,14 +244,14 @@
                     </div>
                 </div>
             </div>
-            transition duration-500">
-                    </div>
+        
                     <div class="p-8">
                         <h4 class="text-xl font-bold mb-2"> Apur Sangsar</h4>
                         <p class="opacity-70 text-sm">Indian great writer and film director's classic movie review.</p>
                     </div>
                 </div>
             </div>
+            
         </section>
 
         <section id="fuji-tribute" class="fuji-gradient rounded-[3rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
