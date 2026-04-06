@@ -250,7 +250,7 @@
                         <img src="baomosa.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-6 text-left">
-                        <h4 class="text-lg font-bold mb-2">Hiking Geumjeongsan</h4>
+                        <h4 class="text-lg font-bold mb-2 text-blue-500">Hiking Geumjeongsan</h4>
                         <p class="opacity-70 text-xs leading-relaxed">A journey to Busan's peak. Reflection on nature and academic discipline.</p>
                     </div>
                 </div>
@@ -259,17 +259,17 @@
                         <img src="atomic-habits-james-clear-irustima.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-6 text-left">
-                        <h4 class="text-lg font-bold mb-2">Atomic Habits</h4>
+                        <h4 class="text-lg font-bold mb-2 text-green-500">Atomic Habits</h4>
                         <p class="opacity-70 text-xs leading-relaxed">Applying 1% improvements to trade data modeling and study routines.</p>
                     </div>
                 </div>
                 <div class="adventure-card rounded-3xl overflow-hidden group">
-                    <div class="h-48 bg-slate-800 flex items-center justify-center">
-                         <span class="text-white font-bold opacity-20 text-3xl italic">Apur Sangsar</span>
+                    <div class="h-48 overflow-hidden">
+                         <img src="MV5BYjQwMDk3NGMtYzg2ZC00MWNmLTliZDUtM2MwYjZjM2E0MWYwXkEyXkFqcGc@._V1_.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-6 text-left">
-                        <h4 class="text-lg font-bold mb-2">Cinema Review</h4>
-                        <p class="opacity-70 text-xs leading-relaxed">Exploring life and resilience through Satyajit Ray's cinematic masterpiece.</p>
+                        <h4 class="text-lg font-bold mb-2 text-yellow-500">Cinema Review</h4>
+                        <p class="opacity-70 text-xs leading-relaxed">Exploring life, loss, and resilience through cinematic masterpieces.</p>
                     </div>
                 </div>
             </div>
