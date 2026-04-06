@@ -48,7 +48,7 @@
             border-radius: 50%;
             overflow: hidden;
             border: 4px solid var(--accent-color);
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .details-overlay {
@@ -57,18 +57,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(8px);
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 1.5rem;
             color: white;
             opacity: 0;
             transform: rotateY(180deg);
-            transition: opacity 0.5s, transform 0.5s;
+            transition: opacity 0.5s, transform 0.6s;
             text-align: center;
         }
 
@@ -102,35 +102,35 @@
         .social-link {
             background-color: var(--card-bg);
             color: var(--text-color);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
 
         .social-link:hover {
-            transform: translateX(8px);
+            transform: translateY(-3px);
             background-color: var(--accent-color);
             color: white;
         }
 
         .project-box, .adventure-card {
-            background-color: var(--bg-color);
-            border: 1px solid rgba(128, 128, 128, 0.2);
+            background-color: var(--card-bg);
+            border: 1px solid rgba(128, 128, 128, 0.1);
             transition: all 0.3s ease;
+            height: 100%;
         }
 
-        .project-box:hover {
-            transform: translateY(-5px);
+        .project-box:hover, .adventure-card:hover {
+            transform: translateY(-8px);
             border-color: var(--accent-color);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
         .fuji-gradient {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         }
 
-        /* Mobile specific adjustments */
         @media (max-width: 768px) {
-            .profile-circle { width: 250px; height: 250px; }
-            .details-overlay { font-size: 0.8rem; }
+            .profile-circle { width: 280px; height: 280px; }
+            .details-overlay { font-size: 0.75rem; padding: 1rem; }
         }
     </style>
 </head>
@@ -144,7 +144,7 @@
         
         <header class="mb-16 flex justify-between items-center">
             <div>
-                <h1 class="text-3xl font-bold">Portfolio</h1>
+                <h1 class="text-3xl font-bold tracking-tight">Portfolio</h1>
                 <nav class="flex space-x-6 mt-4 text-sm font-medium opacity-70">
                     <a href="#" class="hover:text-blue-500 transition">Home</a>
                     <a href="#projects" class="hover:text-blue-500 transition">Projects</a>
@@ -158,16 +158,15 @@
                 <span class="text-blue-500 font-bold tracking-widest text-xs uppercase">Welcome to my world</span>
                 <h2 class="text-5xl md:text-6xl font-bold mt-2 mb-6 tracking-tight">I'm Alam Al Kahaf</h2>
                 <p class="text-lg opacity-80 leading-relaxed mb-8">
-                    Business Management Student At Donga University. 
-                    
+                    Business Management Student At Donga University. Focused on the intersection of data, strategy, and emerging technologies.
                 </p>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <a href="mailto:2417735@donga.ac.kr" class="social-link p-4 rounded-xl flex items-center font-medium">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <a href="mailto:2417735@donga.ac.kr" class="social-link p-4 rounded-2xl flex items-center font-medium">
                         <svg class="mr-3" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                         2417735@donga.ac.kr
                     </a>
-                    <a href="https://github.com/2417735" target="_blank" class="social-link p-4 rounded-xl flex items-center font-medium">
+                    <a href="https://github.com/2417735" target="_blank" class="social-link p-4 rounded-2xl flex items-center font-medium">
                         <svg class="mr-3" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                         GitHub Profile
                     </a>
@@ -180,17 +179,16 @@
                         <img src="unnamed.png" alt="Profile" class="w-full h-full object-cover">
                     </div>
                     <div class="details-overlay">
-                        <h4 class="text-xl font-bold mb-1">A </h4>
-                        <p class="text-sm opacity-80 px-5">
-                        
-                        “When I finish with track and field, I’ll change sports and move on. If I can’t race at the top level by 2016,then I want to turn my hand to another game – football because I can play and with enough effort I can get better.”* <br><br>
-                            - Usain Bolt <br><br>
-                           ___________________________
+                        <h4 class="text-xl font-bold mb-3">Vision & Journey</h4>
+                        <p class="text-xs italic opacity-90 px-4 leading-relaxed">
+                            “When I finish with track and field, I’ll change sports and move on. If I can’t race at the top level by 2016, then I want to turn my hand to another game – football.” <br>
+                            <span class="block mt-2 font-bold">- Usain Bolt</span>
                         </p>
-                        <div class="mt-6 flex space-x-2">
-                            <span class="text-[10px] bg-blue-500 px-2 py-1 rounded">Ai Data Analyst</span>
-                            <span class="text-[10px] bg-purple-500 px-2 py-1 rounded">SEO Optimizer</span>
-                            <span class="text-[10px] bg-green-500 px-2 py-1 rounded">Market Researcher</span>
+                        <div class="w-16 h-px bg-white/30 my-4"></div>
+                        <div class="flex flex-wrap justify-center gap-2">
+                            <span class="text-[9px] bg-blue-500 px-2 py-1 rounded-full uppercase font-bold">Ai Data Analyst</span>
+                            <span class="text-[9px] bg-purple-500 px-2 py-1 rounded-full uppercase font-bold">SEO Optimizer</span>
+                            <span class="text-[9px] bg-green-500 px-2 py-1 rounded-full uppercase font-bold">Market Researcher</span>
                         </div>
                     </div>
                 </div>
@@ -201,66 +199,74 @@
             <h3 class="text-2xl font-bold mb-10 flex items-center">
                 <span class="w-8 h-1 bg-blue-500 mr-4"></span> Academic Projects
             </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="project-box p-8 rounded-2xl">
-                    <h4 class="text-xl font-bold mb-3 text-blue-500">Ai Data Analysis Projects</h4>
-                    <p class="text-sm opacity-70 mb-6 text-gray-500">Using Ai to find out the bugs and fix the file for academic thesis.</p>
-                    <a href="#" class="text-xs font-bold uppercase tracking-widest hover:underline">View Report</a>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="project-box p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xl font-bold mb-3 text-blue-500">Ai Data Analysis</h4>
+                        <p class="text-sm opacity-70 mb-6 leading-relaxed">Using Ai to identify bugs and optimize datasets for academic research and thesis development.</p>
+                    </div>
+                    <a href="#" class="text-xs font-bold uppercase tracking-widest hover:text-blue-500 transition">View Report &rarr;</a>
                 </div>
-                <div class="project-box p-8 rounded-2xl">
-                    <h4 class="text-xl font-bold mb-3 text-green-500">Student Portal</h4>
-                    <p class="text-sm opacity-70 mb-6 text-gray-500">Learn how to make a personal portal just using Ai</p>
-                    <a href="#" class="text-xs font-bold uppercase tracking-widest hover:underline">Report</a>
+                <div class="project-box p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xl font-bold mb-3 text-green-500">Personal Portal</h4>
+                        <p class="text-sm opacity-70 mb-6 leading-relaxed">A study on building customized management portals leveraging artificial intelligence workflows.</p>
+                    </div>
+                    <a href="#" class="text-xs font-bold uppercase tracking-widest hover:text-green-500 transition">View Details &rarr;</a>
                 </div>
-                <div class="project-box p-8 rounded-2xl">
-                    <h4 class="text-xl font-bold mb-3 text-yellow-500">Excel Formula Model</h4>
-                    <p class="text-sm opacity-70 mb-6 text-gray-500">Optimizing the data and using Ai to generate formula.</p>
-                    <a href="#" class="text-xs font-bold uppercase tracking-widest hover:underline">Doc Link</a>
+                <div class="project-box p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xl font-bold mb-3 text-yellow-500">Excel Formula Model</h4>
+                        <p class="text-sm opacity-70 mb-6 leading-relaxed">Designing complex logical models in Excel assisted by generative Ai for business efficiency.</p>
+                    </div>
+                    <a href="#" class="text-xs font-bold uppercase tracking-widest hover:text-yellow-500 transition">Doc Link &rarr;</a>
                 </div>
             </div>
         </section>
 
         <section id="adventures" class="mb-32">
             <h3 class="text-2xl font-bold mb-10 flex items-center">
-                <span class="w-8 h-1 bg-red-500 mr-4"></span> Adventures
+                <span class="w-8 h-1 bg-red-500 mr-4"></span> Adventures & Insights
             </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="adventure-card rounded-3xl overflow-hidden group">
-                    <div class="h-64 overflow-hidden">
+                    <div class="h-48 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1551632432-c735e82992a7?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
-                    <div class="p-8">
-                        <h4 class="text-xl font-bold mb-2">Hiking Geumjeongsan</h4>
-                        <p class="opacity-70 text-sm">A journey to the highest peak in Busan. Reflection on nature and discipline.</p>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold mb-2">Hiking Geumjeongsan</h4>
+                        <p class="opacity-70 text-xs leading-relaxed">A journey to the highest peak in Busan. A reflection on nature and the discipline required to reach the top.</p>
                     </div>
                 </div>
                 <div class="adventure-card rounded-3xl overflow-hidden group">
-                    <div class="h-64 overflow-hidden">
+                    <div class="h-48 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
-                    <div class="p-8">
-                        <h4 class="text-xl font-bold mb-2">Atomic Habits Review</h4>
-                        <p class="opacity-70 text-sm">How 1% changes every day lead to massive coding improvements.</p>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold mb-2">Atomic Habits</h4>
+                        <p class="opacity-70 text-xs leading-relaxed">Insights into how 1% daily changes compound into massive life and professional improvements.</p>
+                    </div>
+                </div>
+                <div class="adventure-card rounded-3xl overflow-hidden group">
+                    <div class="h-48 bg-slate-800 flex items-center justify-center">
+                         <span class="text-white font-bold opacity-20 text-4xl italic">Cinema</span>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold mb-2">Apur Sangsar</h4>
+                        <p class="opacity-70 text-xs leading-relaxed">Reviewing the classic masterpiece by Satyajit Ray, exploring themes of life, loss, and resilience.</p>
                     </div>
                 </div>
             </div>
-        
-                    <div class="p-8">
-                        <h5 class="text-xl font-bold mb-2"> Apur Sangsar</h4>
-                        <p class="opacity-70 text-sm">Indian great writer and film director's classic movie review.</p>
-                    </div>
-            
         </section>
 
-        <section id="fuji-tribute" class="fuji-gradient rounded-[3rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
+        <section id="fuji-tribute" class="fuji-gradient rounded-[2.5rem] md:rounded-[4rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
             <div class="relative z-10">
-                <h2 class="text-7xl md:text-9xl font-black opacity-10 absolute -top-10 left-1/2 -translate-x-1/2">FUJI</h2>
+                <h2 class="text-7xl md:text-9xl font-black opacity-10 absolute -top-10 left-1/2 -translate-x-1/2 select-none">FUJI</h2>
                 <h3 class="text-4xl md:text-6xl font-bold mb-6">富士山</h3>
-                <p class="max-w-xl mx-auto opacity-80 leading-loose">
-                    At 3,776 meters, Mt. Fuji is the peak of resilience. 
-                    It stands as a silent mentor, teaching us that greatness is built on a solid foundation.
+                <p class="max-w-xl mx-auto opacity-80 leading-loose text-sm md:text-base px-4">
+                    At 3,776 meters, Mt. Fuji is the peak of resilience. It stands as a silent mentor, teaching us that greatness is built on a solid foundation.
                 </p>
-                <div class="mt-10 text-[10px] tracking-[0.3em] opacity-40 uppercase">35.3606° N, 138.7274° E</div>
+                <div class="mt-10 text-[10px] tracking-[0.3em] opacity-40 uppercase font-mono">35.3606° N, 138.7274° E</div>
             </div>
         </section>
 
@@ -283,7 +289,7 @@
                 : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
         });
 
-        // PIN PROTECTION
+        // PIN PROTECTION (Optional use)
         function checkPin(event) {
             event.preventDefault(); 
             const CORRECT_PIN = "2588";
