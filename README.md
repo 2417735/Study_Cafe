@@ -180,16 +180,16 @@
                         <img src="unnamed.png" alt="Profile" class="w-full h-full object-cover">
                     </div>
                     <div class="details-overlay">
-                        <h4 class="text-xl font-bold mb-2">My Journey</h4>
+                        <h4 class="text-xl font-bold mb-2">A </h4>
                         <p class="text-sm opacity-90 px-4">
-                            Started as a tech enthusiast in 2022. <br><br>
-                            Now mastering **SQL**, **Python**, and **React** at Donga. <br><br>
-                            Goal: Building AI-driven data tools.
+                            “When I finish with track and field, I’ll change sports and move on. If I can’t race at the top level by 2016,then I want to turn my hand to another game – football because I can play and with enough effort I can get better.”* <br><br>
+                            - Usain Bolt <br><br>
+                           ___________________________
                         </p>
                         <div class="mt-6 flex space-x-2">
-                            <span class="text-[10px] bg-blue-500 px-2 py-1 rounded">Analyst</span>
-                            <span class="text-[10px] bg-purple-500 px-2 py-1 rounded">Developer</span>
-                            <span class="text-[10px] bg-green-500 px-2 py-1 rounded">Hiker</span>
+                            <span class="text-[10px] bg-blue-500 px-2 py-1 rounded">Ai Data Analyst</span>
+                            <span class="text-[10px] bg-purple-500 px-2 py-1 rounded">SEO Optimizer</span>
+                            <span class="text-[10px] bg-green-500 px-2 py-1 rounded">Market Researcher</span>
                         </div>
                     </div>
                 </div>
@@ -202,18 +202,18 @@
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="project-box p-8 rounded-2xl">
-                    <h4 class="text-xl font-bold mb-3 text-blue-500">Data Modeling</h4>
-                    <p class="text-sm opacity-70 mb-6 text-gray-500">Stock prediction using ARIMA and LSTM models for academic thesis.</p>
+                    <h4 class="text-xl font-bold mb-3 text-blue-500">Ai Data Analysis Projects</h4>
+                    <p class="text-sm opacity-70 mb-6 text-gray-500">Using Ai to find out the bugs and fix the file for academic thesis.</p>
                     <a href="#" class="text-xs font-bold uppercase tracking-widest hover:underline">View Report</a>
                 </div>
                 <div class="project-box p-8 rounded-2xl">
                     <h4 class="text-xl font-bold mb-3 text-green-500">Student Portal</h4>
-                    <p class="text-sm opacity-70 mb-6 text-gray-500">Full-stack system for Donga University grading using Spring Boot.</p>
-                    <a href="#" class="text-xs font-bold uppercase tracking-widest hover:underline">Repo Link</a>
+                    <p class="text-sm opacity-70 mb-6 text-gray-500">Learn how to make a personal portal just using Ai</p>
+                    <a href="#" class="text-xs font-bold uppercase tracking-widest hover:underline">Report</a>
                 </div>
                 <div class="project-box p-8 rounded-2xl">
-                    <h4 class="text-xl font-bold mb-3 text-yellow-500">SQL Tuning</h4>
-                    <p class="text-sm opacity-70 mb-6 text-gray-500">Optimizing retail databases for 45% faster query responses.</p>
+                    <h4 class="text-xl font-bold mb-3 text-yellow-500">Excel Formula Model</h4>
+                    <p class="text-sm opacity-70 mb-6 text-gray-500">Optimizing the data and using Ai to generate formula.</p>
                     <a href="#" class="text-xs font-bold uppercase tracking-widest hover:underline">Doc Link</a>
                 </div>
             </div>
@@ -240,6 +240,14 @@
                     <div class="p-8">
                         <h4 class="text-xl font-bold mb-2">Atomic Habits Review</h4>
                         <p class="opacity-70 text-sm">How 1% changes every day lead to massive coding improvements.</p>
+                    </div>
+                </div>
+            </div>
+            transition duration-500">
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold mb-2"> Apur Sangsar</h4>
+                        <p class="opacity-70 text-sm">Indian great writer and film director's classic movie review.</p>
                     </div>
                 </div>
             </div>
