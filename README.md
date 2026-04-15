@@ -135,10 +135,10 @@
         }
     </style>
 </head>
-<body>
+<body class="dark-mode">
 
     <button id="theme-toggle" title="Toggle Night Mode">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
     </button>
 
     <div class="main-content">
@@ -224,7 +224,7 @@
                 </div>
             </div>
 
-            <div class="drive-box rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 mb-32">
+            <div class="drive-box rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
                 <div class="flex items-center gap-6 text-left">
                     <div class="bg-blue-500 p-4 rounded-2xl text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
@@ -238,6 +238,21 @@
                     Open Academic Drive Folder
                 </a>
             </div>
+
+            <div class="drive-box rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 mb-32">
+                <div class="flex items-center gap-6 text-left">
+                    <div class="bg-blue-500 p-4 rounded-2xl text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold">Linear Equation Solver</h4>
+                        <p class="text-sm opacity-60">Interactive tool for academic linear modeling and visualization.</p>
+                    </div>
+                </div>
+                <a href="linear.html" class="bg-blue-500 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-600 transition shadow-lg shadow-blue-500/30">
+                    Open Solver Tool
+                </a>
+            </div>
         </section>
 
         <section id="adventures" class="mb-32">
@@ -247,7 +262,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="adventure-card rounded-3xl overflow-hidden group">
                     <div class="h-48 overflow-hidden">
-                        <img src="baomosa.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <img src="baomosa.jpeg" alt="Hiking" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-6 text-left">
                         <h4 class="text-lg font-bold mb-2 text-blue-500">Hiking Geumjeongsan</h4>
@@ -256,7 +271,7 @@
                 </div>
                 <div class="adventure-card rounded-3xl overflow-hidden group">
                     <div class="h-48 overflow-hidden">
-                        <img src="atomic-habits-james-clear-irustima.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <img src="atomic-habits-james-clear-irustima.jpg" alt="Atomic Habits" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-6 text-left">
                         <h4 class="text-lg font-bold mb-2 text-green-500">Atomic Habits</h4>
@@ -265,7 +280,7 @@
                 </div>
                 <div class="adventure-card rounded-3xl overflow-hidden group">
                     <div class="h-48 overflow-hidden">
-                         <img src="MV5BYjQwMDk3NGMtYzg2ZC00MWNmLTliZDUtM2MwYjZjM2E0MWYwXkEyXkFqcGc@._V1_.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                         <img src="MV5BYjQwMDk3NGMtYzg2ZC00MWNmLTliZDUtM2MwYjZjM2E0MWYwXkEyXkFqcGc@._V1_.jpg" alt="Apur Sangsar" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-6 text-left">
                         <h4 class="text-lg font-bold mb-2 text-yellow-500">Apur Sangsar</h4>
@@ -296,7 +311,7 @@
 
         <section id="fuji-tribute" class="fuji-gradient rounded-[2.5rem] md:rounded-[3rem] p-12 md:p-24 text-center text-white relative overflow-hidden">
             <div class="absolute inset-0 opacity-20 pointer-events-none">
-                <img src="fuji-san-and-lake.jpg" class="w-full h-full object-cover">
+                <img src="fuji-san-and-lake.jpg" alt="Fuji" class="w-full h-full object-cover">
             </div>
             <div class="relative z-10">
                 <h2 class="text-7xl md:text-9xl font-black opacity-10 absolute -top-10 left-1/2 -translate-x-1/2 select-none">FUJI</h2>
@@ -318,13 +333,20 @@
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
 
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            const isDark = body.classList.contains('dark-mode');
+        const updateThemeIcon = (isDark) => {
             themeToggle.innerHTML = isDark 
                 ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>'
                 : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+        };
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            updateThemeIcon(isDark);
         });
+
+        // Ensure icon is correct on initial load
+        updateThemeIcon(body.classList.contains('dark-mode'));
     </script>
 </body>
 </html>
