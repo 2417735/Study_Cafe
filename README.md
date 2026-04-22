@@ -21,7 +21,6 @@
             --card-bg: #1e293b;
         }
 
-        /* --- CUSTOM BOLT & GAMING CURSOR --- */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
@@ -29,7 +28,6 @@
             transition: background-color 0.4s, color 0.4s;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            /* Classic Gaming/Bolt Style Cursor */
             cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="black" stroke="white" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>'), auto;
         }
 
@@ -43,7 +41,6 @@
             padding: 2rem 1.5rem;
         }
 
-        /* --- INTERACTIVE IDENTITY CARD --- */
         .profile-container {
             position: relative;
             perspective: 1000px;
@@ -86,7 +83,6 @@
             transform: rotateY(180deg);
         }
 
-        /* --- UI ELEMENTS --- */
         #theme-toggle {
             position: fixed;
             bottom: 2rem;
@@ -124,7 +120,6 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
-        /* --- SECTIONS --- */
         .fuji-gradient { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
         .jeju-gradient { background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%); }
         .drive-box { background: rgba(59, 130, 246, 0.05); border: 2px dashed var(--accent-color); }
@@ -221,6 +216,22 @@
                         <p class="text-sm opacity-70 mb-6">Optimizing decision variables and parameters for trade policy simulations.</p>
                     </div>
                     <a href="#" class="text-xs font-bold uppercase tracking-widest hover:text-yellow-500 transition">Doc Link &rarr;</a>
+                </div>
+            </div>
+
+            <div class="project-box p-8 rounded-3xl border-2 border-dashed border-blue-500/50 bg-blue-500/5 mb-10">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="max-w-2xl text-left">
+                        <h4 class="text-2xl font-bold text-blue-500 mb-2 flex items-center gap-2">
+                            <span>💡</span> Adventure Insights: Driving Quest
+                        </h4>
+                        <p class="text-sm opacity-80 leading-relaxed">
+                            Beyond data, I'm documenting the <strong>South Korea Driver's License</strong> process and the legendary <strong>4-Rivers Bike Trip</strong>. High-performance resilience translated into a complete guide.
+                        </p>
+                    </div>
+                    <a href="Drive4.html" class="bg-blue-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-600 transition shadow-lg whitespace-nowrap">
+                        Open Drive4.html &rarr;
+                    </a>
                 </div>
             </div>
 
@@ -345,7 +356,6 @@
             updateThemeIcon(isDark);
         });
 
-        // Ensure icon is correct on initial load
         updateThemeIcon(body.classList.contains('dark-mode'));
     </script>
 </body>
