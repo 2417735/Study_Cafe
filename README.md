@@ -145,6 +145,7 @@
                     <a href="#" class="hover:text-blue-500 transition">Home</a>
                     <a href="#projects" class="hover:text-blue-500 transition">Projects</a>
                     <a href="#adventures" class="hover:text-blue-500 transition">Adventures</a>
+                    <a href="https://2417735.github.io/Course_Overview.-/index.html" class="hover:text-blue-500 transition">Trade & Management Science Project</a>
                 </nav>
             </div>
         </header>
